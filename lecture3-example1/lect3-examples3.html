@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            My car sprite example.
+        </title>
+        <style>
+            ul.cars {
+                list-style-type: none;
+            }
+            ul.cars li {
+                padding: 20px;
+                font-size: 14px;
+                font-family: 'Courier New', Courier, monospace;
+            }
+            ul.cars li a {
+                height: 200px;
+                line-height: 200px;
+                padding-left: 210px;
+                display: inline-block;
+                background: url("cars-sprite.png") no-repeat;
+            }
+            ul.cars li.m a {
+                background-position: 0 0;
+            }
+            ul.cars li.b a {
+                background-position: 0 -200px;
+            }
+            ul.cars li.v a {
+                background-position: 0 -400px;
+            }
+
+            ul.cars li.m a:hover {
+                background-position: 0 -600px;
+            }
+            ul.cars li.b a:hover {
+                background-position: 0 -800px;
+            }
+            ul.cars li.v a:hover {
+                background-position: 0 -1000px;
+            }
+        </style>
+    </head>
+    <body>
+        <ul class="cars">
+            <li class="m"><a href="#">Mercedes Benz</a></li>
+            <li class="b"><a href="#">BMW</a></li>
+            <li class="v"><a href="#">Volkswagen</a></li>
+        </ul>
+
+
+    </body>
+</html>
