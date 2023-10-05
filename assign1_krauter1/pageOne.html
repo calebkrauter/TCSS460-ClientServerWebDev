@@ -26,6 +26,7 @@
             }
             div.mainPage {
                 background-color: white;
+                height: 1000px;
                 padding-top: 10px;
                 background-size: cover;
                 margin-left: 8%;
@@ -68,23 +69,28 @@
                 margin: 0;
                 padding-left: 10px;
             }
-            div.portrait {
-                background: url('start/images/113010-m.jpg') no-repeat;
+            img.portrait {
+                float: left;
                 padding: 10px;
+                height: 400px;
 
                 
             }
             p.description {
-                padding-left: 300px;
+                margin: 0;
+                float: right;
                 width: 590px;
-                display: inline-block;
             }
             p.price {
-                padding-left: 300px;
+                float: left;
                 color: red;
+
             }
             ul.purchaseList {
-                margin-left: 300px;
+                margin-top: 50px;
+                margin-right: 50px;
+                float: left;
+
                 background-color: white;
                 border-style: solid;
                 border-width: 1px;
@@ -92,6 +98,7 @@
                 border-color: #f1f1f1;
             }
             li.wishBuyRef{
+
                 display: inline-block;
                 background-color: #222222;
                 margin: 10px;
@@ -105,6 +112,7 @@
             }
             p.productDetailsTitle {
                 font-size: 24px;   
+                float: right;
 
                 color: #222222;
                 padding-bottom: 5px;
@@ -117,7 +125,7 @@
                 border-right: white;
                 border-color: #f1f1f1;
                 background-size: 1px;
-                margin-left: 300px;
+                
                 padding-left: 0;
 
             }
@@ -147,7 +155,8 @@
         <div class="mainPage">
             <p class="mainPhotoTitle">Self-portrait in a Straw Hat</p>
             <p class="authorMainPhoto">By <a href="#">Lousie Elisabeth Lebrun</a></p>
-            <div class="portrait">
+            <img class="portrait" src="start/images/113010-m.jpg" no-repeat>
+
             <p class="description">The painting appears, after cleaning, to be an autograph replica of a picture, the original of
             which was painted in Brussels in 1782 in free imitation of Ruben's 'Chapeau de Paille',
             which LeBrun had seen in Antwerp. It was exhibited in Paris in 1782 at the Salon de la 
@@ -158,7 +167,6 @@
                 <li class="wishBuyRef"><a href="#">Add to Shopping Cart</a></li>
             </ul>
             <p class="productDetailsTitle">Product Details</p>
-        </div>
         </div>
     </body>
 </html>
