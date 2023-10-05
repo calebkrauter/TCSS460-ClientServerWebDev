@@ -9,22 +9,21 @@
                 margin: 0;
             }
             p.pageName {
-                width: 900px;
-
-                font-size: 72px;
+                width: 980px;
+                font-size: 64px;
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: bold;
                 color: #222222;
                 margin-top: 0;
                 margin: auto;
             }
             div.profileMenuBlock {
-                width: 900px;
-
+                width: 980px;
                 background-color: #222222;
                 margin: auto;
-
             }
             div.pageMenuBlock {
-                width: 900px;
+                width: 980px;
 
                 background-color: #f8f8f8;
                 border-style: solid;
@@ -36,15 +35,15 @@
             }
             div.mainPage {
                 background-color: white;
-                height: 1000px;
-                width: 900px;
+                height: 780px;
+                width: 980px;
                 padding-top: 10px;
                 background-size: cover;
                 border-style: solid;
                 border-width: 1px;
                 border-color: lightgray;
                 margin: auto;
-                margin-bottom: 15%;
+
                 
             }
             ul.profileMenu {
@@ -63,22 +62,35 @@
                 display: inline-block;
                 padding-left: 20px;
             }
+            li.profileMenuRef a {
+                text-decoration: none;
+                color: #828282;
+                font-family: Arial, Helvetica, sans-serif;
+
+            }
             li.pageMenuRef {
                 display: inline-block;
                 margin-left: 0;
                 padding-right: 10px;
             }
+            li.pageMenuRef a {
+                text-decoration: none;
+                color: #222222;
+                font-family: Arial, Helvetica, sans-serif;
+            }
             p.mainPhotoTitle {
                 color: #222222;
-                font-size: 32px;
+                font-size: 24px;
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: bold;
                 margin-top: 0;
                 padding-right: 5px;
                 padding-left: 10px;
             }
             p.authorMainPhoto {
                 color: #222222;
-
-                font-size: 20px;
+                font-size: 15px;
+                font-family: Arial, Helvetica, sans-serif;
                 margin: 0;
                 padding-left: 10px;
             }
@@ -86,16 +98,16 @@
                 float: left;
                 padding: 10px;
                 height: 400px;
-
-                
             }
             p.description {
+                font-family: Arial, Helvetica, sans-serif;
                 margin: 0;
-                width: 900px;
+                width: 960px;
             }
             p.price {
                 color: red;
-
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: bold;
             }
             ul.purchaseList {
                 float: left;
@@ -105,21 +117,31 @@
                 width: 540px;
                 border-color: #f1f1f1;
             }
-            li.wishBuyRef{
+            button.wishBuyRef{
                 display: inline-block;
-                background-color: #222222;
                 margin: 10px;
                 margin-left: 0;
+                padding-left: 0;
                 padding-top: 10px;
-                text-align-last: center;
-            }
-            li.wishBuyRef a{
-                float: left;
+                width: 240px;
                 height: 30px;
-                width: 200px;
+                text-align-last: center;
+                padding-bottom: 25px;
+
+            }
+            button.wishBuyRef a{
+                text-decoration: none;
+                text-align: center;
+                color: #391cff;
+                font-weight: bolder;
+                font-size: 17px;
+                font-family: Arial, Helvetica, sans-serif;
+
             }
             p.productDetailsTitle {
                 font-size: 24px;   
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: bold;
                 color: #222222;
                 padding-bottom: 5px;
                 margin-left: 310px;
@@ -176,8 +198,6 @@
                 border-color: #f1f1f1;
             }
             ul.similarPhotoTitle {
-
-                background-color: red;
                 float: left;
             }
             ul.similarPhotoTitle a.title {
@@ -200,8 +220,22 @@
             button.buttonSimilarPhoto{
                 margin-top: 5px;
                 margin-left: 10px;
-
                 float: left;
+            }
+
+            div.basePage {
+                width: 980px;
+                background-color: #222222;
+                margin: auto;
+                height: 40px;
+
+            }
+            p.basePageInfo {
+                color: #a4a4a4;
+                text-align: center;
+                font-family: Arial, Helvetica, sans-serif;
+                padding-top: 10px;
+                
             }
         </style>
     </head>
@@ -237,8 +271,8 @@
             Correspondance. LeBrun's orginal is recorded in a private collection in France.</p>
             <p class="price">$700</p>
             <ul class="purchaseList">
-                <li class="wishBuyRef"><a href="#">Add to Wish List</a></li>
-                <li class="wishBuyRef"><a href="#">Add to Shopping Cart</a></li>
+                <button class="wishBuyRef"><a href="#">Add to Wish List</a></button>
+                <button class="wishBuyRef"><a href="#">Add to Shopping Cart</a></button>
             </ul>
             <p class="productDetailsTitle">Product Details</p>
             <table class="productDetails">
@@ -311,6 +345,9 @@
                 </ul>
             </div>
             
+        </div>
+        <div class="basePage">
+            <p class="basePageInfo">All images are copyright to their owners. This is just a hypothetical site &copy 2014 Copyright Art Store</p>
         </div>
     </body>
 </html>
