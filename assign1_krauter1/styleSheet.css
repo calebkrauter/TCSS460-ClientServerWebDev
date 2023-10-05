@@ -230,5 +230,22 @@ p.basePageInfo {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     padding-top: 10px;
-    
 }
+ol.listSteps {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+}
+li.listStepTitle {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+}
+div.formElementGroup {
+    display: inline-block;
+    margin-right: 100px;
+}
+input.email {
+    width: 400px;
+}
+
