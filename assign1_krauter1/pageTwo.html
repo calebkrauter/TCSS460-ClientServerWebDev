@@ -40,20 +40,20 @@
                             <div class="formElementGroupX">
                                 <label for="first">First Name</label>
                                 <br>
-                                <input type="text" id="first" name="first" value="Eyhab">
+                                <input type="text" id="first" required name="first" value="Eyhab">
                             </div>
                         </td>
                         <td>
                             <label for="last">Last Name</label>
                             <br>
-                            <input type="text" class="longInputForm2" id="last" name="last" value="Al-Masri">
+                            <input type="text" class="longInputForm2" id="last" required name="last" value="Al-Masri">
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2">
                             <label for="email">Email</label>
                             <br>
-                            <input type="text" class="longInputForm" id="email" name="email" value="ealmasri@uw.edu">
+                            <input id="email" type="text" title="Email must be valid containing a '@', and a domain with the included '.' symbol." class="longInputForm" required name="email" value="ealmasri@uw.edu" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}">
                         </td>
                     </tr>
                     <tr>
@@ -61,13 +61,13 @@
                             <div class="formElementGroupX">
                                 <label for="pass1">Password</label>
                                 <br>
-                                <input type="password" id="pass1" name="pass1" value="BarbieIsn'tReal!">
+                                <input title="Password must be at leat 8 characters long." type="password" id="pass1" required name="pass1" value="BarbieIsn'tReal!" minlength="8" pattern="[a-zA-Z0._+-]{8,}" >
                             </div>
                         </td>
                         <td>
                             <label for="pass2">Password Repeat</label>
                             <br>
-                            <input type="password" id="pass2" name="pass2" value="BarbieIsn'tReal!">
+                            <input title="Password must be at leat 8 characters long." type="password" id="pass2" required name="pass2" value="BarbieIsn'tReal!" minlength="8" pattern="[a-zA-Z0._+-]{8,}">
                         </td>
                     </tr>
 
@@ -81,7 +81,7 @@
                         <td colspan="3">
                             <label for="address">Address</label>
                             <br>
-                            <input type="text" class="longInputForm" id="address" name="address" value="1900 Commerce Street">
+                            <input type="text" class="longInputForm" id="address" required name="address" value="1900 Commerce Street">
                         </td>
                     </tr>
                     <br>
@@ -90,18 +90,18 @@
                             <div class="threeFormElementGroupX">
                                 <label for="city">City</label>
                                 <br>
-                                <input type="text" id="city" name="city" value="Tacoma">
+                                <input type="text" id="city" required name="city" value="Tacoma">
                             </div>
                         </td>
                         <td>
                             <label for="state">State</label>
                             <br>
-                            <input type="text" class="smallForm1" id="state" name="state" value="WA">
+                            <input type="text" class="smallForm1" id="state" required name="state" value="WA">
                         </td>
                         <td>
                             <label for="zip">Zip</label>
                             <br>
-                            <input type="text" class="smallForm2" id="zip" name="zip" value="98042">
+                            <input type="text" class="smallForm2" id="zip" required name="zip" value="98042" pattern="[0-9]{5,9}">
                         </td>
                     </tr>
                     <tr>
@@ -109,13 +109,13 @@
                             <div class="formElementGroupX">
                                 <label for="phone">Phone</label>
                                 <br>
-                                <input type="tel" id="phone" name="phone" value="253-692-4000">
+                                <input type="tel" id="phone" required name="phone" value="253-692-4000">
                             </div>
                         </td>
                         <td>
                             <label for="country">Country</label>
                             <br>
-                            <select id="country" name="country">
+                            <select id="country" required name="country">
                                 <option value="United States" selected>United States</option>
                                 <option value="Canada">Canada</option>
                                 <option value="United Kingdom">United Kingdom</option>
@@ -156,13 +156,13 @@
                         <td>
                             <div class="formElementGroupX">
                             <label for="birthday">Birth Day</label>
-                            <input type="date" id="birthday" name="birthday" value="2020-06-23">
+                            <input type="date" id="birthday" required name="birthday" value="2020-06-23">
                             </div>
                         </td>
                         <td>
                             <label for="favorite">Favorite Color</label>
                             <br>
-                            <input type="color" id="favorite" value="#0000ff" name="favorite">
+                            <input type="color" id="favorite" required value="#0000ff" name="favorite">
                         </td>
                     </tr>
                     <tr>
@@ -170,7 +170,7 @@
                             <label for="interest">Interest In Art</label>
                             <br>
                             <label for="interest">Minimal</label>
-                            <input type="range" class="rangeForArtLover" id="interest" value="80" name="interest">
+                            <input type="range" class="rangeForArtLover" id="interest" required value="80" name="interest">
                             <label for="interest">Love it!</label>
                         </td>
                     </tr>
@@ -182,7 +182,7 @@
                 <table>
                     <tr>
                         <td>
-                            <input type="checkbox" id="accept" name="accept" checked>
+                            <input type="checkbox" id="accept" required name="accept" checked>
                             <label for="accept">I agree to the <a href="#">Terms of the site</a></label>
                         </td>
                     </tr>
