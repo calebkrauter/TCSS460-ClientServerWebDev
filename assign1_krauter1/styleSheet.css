@@ -37,9 +37,18 @@ div.mainPage {
     border-style: solid;
     border-width: 1px;
     border-color: lightgray;
-    margin: auto;
-
-    
+    margin: auto; 
+}
+div.mainAccountPage {
+    background-color: white;
+    height: 900px;
+    width: 980px;
+    padding-top: 10px;
+    background-size: cover;
+    border-style: solid;
+    border-width: 1px;
+    border-color: lightgray;
+    margin: auto; 
 }
 ul.profileMenu {
     padding-left: 50%;
@@ -246,7 +255,7 @@ div.formElementGroupX {
     margin-right: 100px;
 }
 input.longInputForm {
-    width: 410px;
+    width: 450px;
 }
 div.stepDivider {
     border-style: solid;
@@ -266,3 +275,4 @@ input.smallForm2 {
 input.rangeForArtLover {
     width: 300px;
 }
+
