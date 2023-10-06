@@ -255,7 +255,7 @@ div.formElementGroupX {
     margin-right: 100px;
 }
 input.longInputForm {
-    width: 450px;
+    width: 410px;
 }
 div.stepDivider {
     border-style: solid;
@@ -274,5 +274,8 @@ input.smallForm2 {
 }
 input.rangeForArtLover {
     width: 300px;
+}
+input.longInputForm2 {
+    width: 170px;
 }
 

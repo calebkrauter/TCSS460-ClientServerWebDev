@@ -6,6 +6,7 @@
 
     </head>
     <body>
+        <form action="http://faculty.washington.edu/ealmasri/assign1.php" method="POST">
         <div class="profileMenuBlock">
             <ul class="profileMenu">
                 <li class="profileMenuRef"><a href="pageTwo.html">My Account</a></li>
@@ -37,36 +38,36 @@
                     <tr>
                         <td>
                             <div class="formElementGroupX">
-                                <label for="fName">First Name</label>
+                                <label for="first">First Name</label>
                                 <br>
-                                <input type="text" id="fName">
+                                <input type="text" id="first" name="first">
                             </div>
                         </td>
                         <td>
-                            <label for="lName">Last Name</label>
+                            <label for="last">Last Name</label>
                             <br>
-                            <input type="text" id="lName">
+                            <input type="text" class="longInputForm2" id="last" name="last">
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2">
                             <label for="email">Email</label>
                             <br>
-                            <input type="text" class="longInputForm" id="email">
+                            <input type="text" class="longInputForm" id="email" name="email">
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <div class="formElementGroupX">
-                                <label for="password">Password</label>
+                                <label for="pass1">Password</label>
                                 <br>
-                                <input type="password" id="password">
+                                <input type="password" id="pass1" name="pass1">
                             </div>
                         </td>
                         <td>
-                            <label for="passwordRepeat">Password Repeat</label>
+                            <label for="pass2">Password Repeat</label>
                             <br>
-                            <input type="password" id="passwordRepeat">
+                            <input type="password" id="pass2" name="pass2">
                         </td>
                     </tr>
 
@@ -77,10 +78,10 @@
                 <div class="stepDivider"></div>
                 <table>
                     <tr>
-                        <td colspan="2">
+                        <td colspan="3">
                             <label for="address">Address</label>
                             <br>
-                            <input type="text" class="longInputForm" id="address">
+                            <input type="text" class="longInputForm" id="address" name="address">
                         </td>
                     </tr>
                     <br>
@@ -89,18 +90,18 @@
                             <div class="threeFormElementGroupX">
                                 <label for="city">City</label>
                                 <br>
-                                <input type="text" id="city">
+                                <input type="text" id="city" name="city">
                             </div>
                         </td>
                         <td>
                             <label for="state">State</label>
                             <br>
-                            <input type="text" class="smallForm1" id="state">
+                            <input type="text" class="smallForm1" id="state" name="state">
                         </td>
                         <td>
                             <label for="zip">Zip</label>
                             <br>
-                            <input type="text" class="smallForm2" id="zip">
+                            <input type="text" class="smallForm2" id="zip" name="zip">
                         </td>
                     </tr>
                     <tr>
@@ -108,7 +109,7 @@
                             <div class="formElementGroupX">
                                 <label for="phone">Phone</label>
                                 <br>
-                                <input type="tel" id="phone">
+                                <input type="tel" id="phone" name="phone">
                             </div>
                         </td>
                         <td>
@@ -123,26 +124,26 @@
                     </tr>
                     <tr>
                         <td>
-                            <input type="radio" id="africa" name="Contienent" value="Africa">
-                            <label for="africa" class="contienentLabel">Africa</label>
+                            <input type="radio" id="africa" name="continent" value="Africa">
+                            <label for="africa">Africa</label>
                             <br>
-                            <input type="radio" id="antarctica" name="Contienent" value="Antarctica">
-                            <label for="antarctica" class="contienentLabel">Antarctica</label>
+                            <input type="radio" id="antarctica" name="continent" value="Antarctica">
+                            <label for="antarctica">Antarctica</label>
                             <br>
-                            <input type="radio" id="asia" name="Contienent" value="Asia">
-                            <label for="asia" class="contienentLabel">Asia</label>
+                            <input type="radio" id="asia" name="continent" value="Asia">
+                            <label for="asia">Asia</label>
                             <br>
-                            <input type="radio" id="australia" name="Contienent" value="Australia">
-                            <label for="australia" class="contienentLabel">Australia</label>
+                            <input type="radio" id="australia" name="continent" value="Australia">
+                            <label for="australia">Australia</label>
                             <br>
-                            <input type="radio" id="europe" name="Contienent" value="Europe">
-                            <label for="europe" class="contienentLabel">Europe</label>
+                            <input type="radio" id="europe" name="continent" value="Europe">
+                            <label for="europe">Europe</label>
                             <br>
-                            <input type="radio" id="northAmerica" name="Contienent" value="North America">
-                            <label for="northAmerica" class="contienentLabel">North America</label>
+                            <input type="radio" id="northAmerica" name="continent" value="North America">
+                            <label for="northAmerica">North America</label>
                             <br>
-                            <input type="radio" id="southAmerica" name="Contienent" value="South America">
-                            <label for="southAmerica" class="contienentLabel">South America</label>
+                            <input type="radio" id="southAmerica" name="continent" value="South America">
+                            <label for="southAmerica">South America</label>
                             <br>
                         </td>
                     </tr>
@@ -155,23 +156,23 @@
                     <tr>
                         <td>
                             <div class="formElementGroupX">
-                            <label for="birthDay">Birth Day</label>
-                            <input type="date" id="birthDay">
+                            <label for="birthday">Birth Day</label>
+                            <input type="date" id="birthday" name="birthday">
                             </div>
                         </td>
                         <td>
-                            <label for="favoriteColor">Favorite Color</label>
+                            <label for="favorite">Favorite Color</label>
                             <br>
-                            <input type="color" id="favoriteColor" value="#0000ff">
+                            <input type="color" id="favorite" value="#0000ff" name="favorite">
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="2">
-                            <label for="intrestInArt">Intrest In Art</label>
+                        <td colspan="3">
+                            <label for="interest">Interest In Art</label>
                             <br>
-                            <label for="intrestInArt">Minimal</label>
-                            <input type="range" class="rangeForArtLover" id="intrestInArt" value="80">
-                            <label for="intrestInArt">Love it!</label>
+                            <label for="interest">Minimal</label>
+                            <input type="range" class="rangeForArtLover" id="interest" value="80" name="interest">
+                            <label for="interest">Love it!</label>
                         </td>
                     </tr>
                 </table>
@@ -182,8 +183,8 @@
                 <table>
                     <tr>
                         <td>
-                            <input type="checkbox" id="agree">
-                            <label for="agree">I agree to the <a href="#">Terms of the site</a></label>
+                            <input type="checkbox" id="accept" name="accept">
+                            <label for="accept">I agree to the <a href="#">Terms of the site</a></label>
                         </td>
                     </tr>
                     <tr>
@@ -201,6 +202,6 @@
         </div>
 
 
-
+    </form>
     </body>
 </html>
