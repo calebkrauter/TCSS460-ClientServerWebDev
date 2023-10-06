@@ -31,6 +31,8 @@
             <ol class="listSteps">
                 <li class="listStepTitle">User Info</li>
                 <br>
+                <div class="stepDivider"></div>
+
                 <table>
                     <tr>
                         <td>
@@ -50,7 +52,7 @@
                         <td colspan="2">
                             <label for="email">Email</label>
                             <br>
-                            <input type="text" class="email" id="email">
+                            <input type="text" class="longInputForm" id="email">
                         </td>
                     </tr>
                     <tr>
@@ -67,10 +69,92 @@
                             <input type="password" id="passwordRepeat">
                         </td>
                     </tr>
+
                 </table>
+                <br>
                 <li class="listStepTitle">Location</li>
-                <li class="listStepTitle">Personal Details</li>
-                <li class="listStepTitle">All Done</li>
+                <br>
+                <div class="stepDivider"></div>
+                <table>
+                    <tr>
+                        <td colspan="2">
+                            <label for="address">Address</label>
+                            <br>
+                            <input type="text" class="longInputForm" id="address">
+                        </td>
+                    </tr>
+                    <br>
+                    <tr>
+                        <td>
+                            <div class="threeFormElementGroupX">
+                                <label for="city">City</label>
+                                <br>
+                                <input type="text" id="city">
+                            </div>
+                        </td>
+                        <td>
+                            <label for="state">State</label>
+                            <br>
+                            <input type="text" class="smallForm1" id="state">
+                        </td>
+                        <td>
+                            <label for="zip">Zip</label>
+                            <br>
+                            <input type="text" class="smallForm2" id="zip">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="formElementGroupX">
+                                <label for="phone">Phone</label>
+                                <br>
+                                <input type="tel" id="phone">
+                            </div>
+                        </td>
+                        <td>
+                            <label for="country">Country</label>
+                            <br>
+                            <select id="country" name="country">
+                                <option value="us">United States</option>
+                                <option value="ca">Canada</option>
+                                <option value="uk">United Kingdom</option>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" id="africa" name="Contienent" value="Africa">
+                            <label for="africa" class="contienentLabel">Africa</label>
+                            <br>
+                            <input type="radio" id="antarctica" name="Contienent" value="Antarctica">
+                            <label for="antarctica" class="contienentLabel">Antarctica</label>
+                            <br>
+                            <input type="radio" id="asia" name="Contienent" value="Asia">
+                            <label for="asia" class="contienentLabel">Asia</label>
+                            <br>
+                            <input type="radio" id="australia" name="Contienent" value="Australia">
+                            <label for="australia" class="contienentLabel">Australia</label>
+                            <br>
+                            <input type="radio" id="europe" name="Contienent" value="Europe">
+                            <label for="europe" class="contienentLabel">Europe</label>
+                            <br>
+                            <input type="radio" id="northAmerica" name="Contienent" value="North America">
+                            <label for="northAmerica" class="contienentLabel">North America</label>
+                            <br>
+                            <input type="radio" id="southAmerica" name="Contienent" value="South America">
+                            <label for="southAmerica" class="contienentLabel">South America</label>
+                            <br>
+                        </td>
+                        </td>
+                        </td>
+                        </td>
+                        </td>
+                        </td>
+                    </tr>
+                </table>
+                    <li class="listStepTitle">Personal Details</li>
+                    <li class="listStepTitle">All Done</li>
+
 
             </ol>
         </div>
