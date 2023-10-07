@@ -1,7 +1,14 @@
+<!-- 
+    Caleb Krauter
+    10-6-2023
+    Version 1.0
+
+    This is the account page of the site.
+-->
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Page 2</title>
+        <title>Assignment 1 - Page 2</title>
         <link rel="styleSheet" href="styleSheet.css">
 
     </head>
@@ -15,25 +22,29 @@
                 <li class="profileMenuRef"><a href="#">Checkout</a></li>
             </ul>
         </div>
-
         <p class="pageName">Art Store</p>
-
         <div class="pageMenuBlock">
             <ul class="pageMenu">
+                <!-- I link to the home page for easy access during development. -->
                 <li class="pageMenuRef"><a href="pageOne.html#">Home</a></li>
                 <li class="pageMenuRef"><a href="#">About Us</a></li>
                 <li class="pageMenuRef"><a href="#">Art Works</a></li>
                 <li class="pageMenuRef"><a href="#">Artists</a></li>
             </ul>
         </div>
-
         <div class="mainAccountPage">
-            <p class="mainPhotoTitle">Customer Registration</p>
+            <p class="mainPhotoTitle">Customer Registration</p>\
             <ol class="listSteps">
                 <li class="listStepTitle">User Info</li>
+                <!-- <br> seemed like the best and easiest way to make whitespace. However w3
+                    didn't like that I use it as a child of <ol> I tried changing
+                    it to <ul> but ran into another issue.-->
                 <br>
+                <!-- I use this div as a way to make my own page divider by connecting it
+                    to a class in the style sheet. It works similar to <hr> with variability
+                    in color and size. -->
                 <div class="stepDivider"></div>
-
+                <!-- I use multiple tables for the four sections to keep it simple. -->
                 <table>
                     <tr>
                         <td>
@@ -44,6 +55,7 @@
                             </div>
                         </td>
                         <td>
+                            <!-- I use 'for="id"' to make the label interactable. -->
                             <label for="last">Last Name</label>
                             <br>
                             <input id="last" type="text" class="longInputForm2" 
@@ -51,6 +63,10 @@
                         </td>
                     </tr>
                     <tr>
+                        <!-- I change the colspan to make input fields have
+                            the abilty to have different lenghts without
+                            forcing other elements to be pushed into the
+                            wrong position. -->
                         <td colspan="2">
                             <label for="email">Email</label>
                             <br>
@@ -80,7 +96,6 @@
                                 minlength="8" pattern="[a-zA-Z0._+-]{8,}">
                         </td>
                     </tr>
-
                 </table>
                 <br>
                 <li class="listStepTitle">Location</li>
@@ -231,8 +246,6 @@
             <p class="basePageInfo">All images are copyright to their owners.
                 This is just a hypothetical site &copy 2014 Copyright Art Store</p>
         </div>
-
-
     </form>
     </body>
 </html>

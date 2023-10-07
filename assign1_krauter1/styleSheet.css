@@ -1,3 +1,13 @@
+/*
+Caleb Krauter
+10-6-2023
+Version 1.0
+
+This style sheet is used to style both the Home and Account pages.
+
+Many of the colors chosen were the colors found in the pdf of
+the assignment through the 'color picker' tool in Windows 'power tools'.
+*/
 body {
     background-image: url("start/images/stucco/stucco.png");
     padding: 0;
@@ -25,7 +35,6 @@ div.pageMenuBlock {
     border-color: lightgray;
     margin: auto;
     margin-bottom: 25px;
-
 }
 div.mainPage {
     background-color: white;
@@ -55,7 +64,6 @@ ul.profileMenu {
     margin: 0;
     padding-top: 10px;
     padding-bottom: 10px;
-    
 }
 li.profileMenuRef {
     display: inline-block;
@@ -65,18 +73,22 @@ li.profileMenuRef a {
     text-decoration: none;
     color: #828282;
     font-family: Arial, Helvetica, sans-serif;
-
+}
+li.profileMenuRef a:hover {
+    background-color: lightblue;
 }
 li.pageMenuRef {
     display: inline-block;
     margin-left: 0;
-    padding-right: 10px;
+    padding-right: 50px;
 }
 li.pageMenuRef a {
     text-decoration: none;
     color: #222222;
     font-family: Arial, Helvetica, sans-serif;
-    padding-right: 30px;
+}
+li.pageMenuRef a:hover {
+    background-color: lightgrey;
 }
 p.mainPhotoTitle {
     color: #222222;
@@ -114,29 +126,37 @@ ul.purchaseList {
     background-color: white;
     border-style: solid;
     border-width: 1px;
-    width: 540px;
+    width: 600px;
     border-color: #f1f1f1;
 }
-button.wishBuyRef{
+/* I changed this from a button to a div to a li because w3
+    warned me about putting a button in a <ul> */
+li.wishBuyRef {
     display: inline-block;
     margin: 10px;
-    margin-left: 0;
+    margin-left: 10px;
     padding-left: 0;
     padding-top: 10px;
-    width: 240px;
-    height: 30px;
+    width: 260px;
+    height: 0px;
     text-align-last: center;
     padding-bottom: 25px;
-
+    /* This is an addition I made after deciding that
+        the buttons shouldn't be button tags. */
+    background-color: #efefef;
+    border-color: lightgray;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 1px;
 }
-button.wishBuyRef a{
+/* I changed this from a button to a div to a li because w3
+    warned me about putting a button in a <ul> */
+li.wishBuyRef a{
     text-decoration: none;
     text-align: center;
-    color: #391cff;
     font-weight: bolder;
     font-size: 17px;
     font-family: Arial, Helvetica, sans-serif;
-
 }
 p.productDetailsTitle {
     font-size: 24px;   
@@ -153,14 +173,11 @@ p.productDetailsTitle {
     border-color: #f1f1f1;
     width: 580px;
     background-size: 1px;
-    
     padding-left: 0;
-
 }
 table.productDetails {
     font-family: Arial, Helvetica, sans-serif;
     color: #222222;
-    
 }
 td.col1Details {
     font-weight: bold;
@@ -182,35 +199,18 @@ div.listOfReccomendationsContainer {
     text-align: center;
 }
 ul.listOfReccomendations {
-    margin-right: 45px;
+    padding-right: 140px;
 }
 li.similarPhoto {
     display: inline-block;
     padding-top: 10px;
-    
     margin-left: 5px;
     margin-right: 5px;
     width: 185px;
     height: 185px;
     border-style: solid;
     border-width: 1px;
-
     border-color: #f1f1f1;
-}
-ul.similarPhotoTitle {
-    float: left;
-}
-ul.similarPhotoTitle a.title {
-    float: left;
-}
-li.photo1 {
-    display: inline-block;
-}
-a.titlePhoto1 {
-    display: inline-block;
-}
-ul.productContainer {
-    display: inline-block;
 }
 a.similarPhotoRef {
     margin-left: 10px;
@@ -222,13 +222,11 @@ button.buttonSimilarPhoto{
     margin-left: 10px;
     float: left;
 }
-
 div.basePage {
     width: 980px;
     background-color: #222222;
     margin: auto;
     height: 40px;
-
 }
 p.basePageInfo {
     color: #a4a4a4;
@@ -250,9 +248,7 @@ div.formElementGroupX {
     display: inline-block;
     margin-right: 100px;
 }
-input.longInputForm {
-    width: 410px;
-}
+/* Used as a seperator similar to <hr> but with adjustable length. */
 div.stepDivider {
     border-style: solid;
     border-width: 1px;
@@ -261,6 +257,9 @@ div.stepDivider {
     border-right: white;
     border-color: #f1f1f1;
     width: 430px;
+}
+input.longInputForm {
+    width: 410px;
 }
 input.smallForm1 {
     width: 60px;

@@ -1,7 +1,14 @@
+<!-- 
+    Caleb Krauter
+    10-6-2023
+    Version 1.0
+
+    This is the home page of the site.
+-->
 <!DOCTYPE html>
 <html>
     <head>
-        <title></title>
+        <title>Assignment 1 - Page 1</title>
         <link rel="styleSheet" href="styleSheet.css">
     </head>
     <body>
@@ -24,11 +31,15 @@
                 <li class="pageMenuRef"><a href="#">Artists</a></li>
             </ul>
         </div>
-
+<!-- 
+    I use divs as containers to float some elements off of and contain
+    the different areas of the page.
+ -->
         <div class="mainPage">
             <p class="mainPhotoTitle">Self-portrait in a Straw Hat</p>
             <p class="authorMainPhoto">By <a href="#">Lousie Elisabeth Lebrun</a></p>
-            <img class="portrait" src="start/images/113010-m.jpg" no-repeat>
+            <img class="portrait" src="start/images/113010-m.jpg" 
+            alt="Main photo of Self-portrait in a Straw Hat by Lousie Elisabeth Lebrun.">
 
             <p class="description">The painting appears, after cleaning, 
                 to be an autograph replica of a picture, the original of
@@ -40,8 +51,15 @@
             collection in France.</p>
             <p class="price">$700</p>
             <ul class="purchaseList">
-                <button class="wishBuyRef"><a href="#">Add to Wish List</a></button>
-                <button class="wishBuyRef"><a href="#">Add to Shopping Cart</a></button>
+                <!-- 
+                    I updated this to use divs instead of buttons due to a w3 warning
+                    however I got a similar error using a div as a child of <ul>.
+                    This looks very close to the mock-up however it was extremely
+                    hard to tell if the mock-up uses buttons or an element that looks like
+                    a button. I chose to use an element and style it like a button.
+                 -->
+                <li class="wishBuyRef"><a href="#">Add to Wish List</a></li>
+                <li class="wishBuyRef"><a href="#">Add to Shopping Cart</a></li>
             </ul>
             <p class="productDetailsTitle">Product Details</p>
             <table class="productDetails">
@@ -75,7 +93,7 @@
                 <ul class="listOfReccomendations">
                     <li class="similarPhoto">
                     <div>
-                        <img class="photos" src="start\images\thumbs\116010.jpg">
+                        <img class="photos" src="start\images\thumbs\116010.jpg" alt="Image 1">
                         <a class="similarPhotoRef" href="#">Artist Holding a Thistle</a>
                             <button class="buttonSimilarPhoto">View</button>
                             <button class="buttonSimilarPhoto">Wish</button> 
@@ -84,7 +102,7 @@
                     </li>
                     <li class="similarPhoto">
                     <div>
-                        <img class="photos" src="start\images\thumbs\120010.jpg">
+                        <img class="photos" src="start\images\thumbs\120010.jpg" alt="Image 2">
                         <a class="similarPhotoRef" href="#">Portrait of Eleanor of Toledo</a>
                         <button class="buttonSimilarPhoto">View</button>
                         <button class="buttonSimilarPhoto">Wish</button> 
@@ -93,7 +111,7 @@
                     </li>
                     <li class="similarPhoto">
                     <div>
-                        <img class="photos" src="start\images\thumbs\107010.jpg">
+                        <img class="photos" src="start\images\thumbs\107010.jpg" alt="Image 3">
                         <a class="similarPhotoRef" href="#">Madame de Pompadour</a>
                         <button class="buttonSimilarPhoto">View</button>
                         <button class="buttonSimilarPhoto">Wish</button> 
@@ -102,21 +120,19 @@
                     </li>
                     <li class="similarPhoto">
                     <div>
-                        <img class="photos" src="start\images\thumbs\106020.jpg">
+                        <img class="photos" src="start\images\thumbs\106020.jpg" alt="Image 4">
                         <a class="similarPhotoRef" href="#">Girl with a peral Earring</a>                        
                         <button class="buttonSimilarPhoto">View</button>
                         <button class="buttonSimilarPhoto">Wish</button> 
                         <button class="buttonSimilarPhoto">Cart</button>
                     </div>
                     </li>
-                    
-                    
                 </ul>
             </div>
         </div>
         <div class="basePage">
             <p class="basePageInfo">All images are copyright to their owners. 
-                This is just a hypothetical site &copy 2014 Copyright Art Store
+                This is just a hypothetical site &copy; 2014 Copyright Art Store
             </p>
         </div>
     </body>
