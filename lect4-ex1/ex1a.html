@@ -45,9 +45,30 @@
             + hour + ":" + timeMin);
 
             for (var counter = 1; counter <= 7; counter++) {
-                document.writeln("<p style ='font-size:" +
+                document.writeln("<p style='font-size:" +
                 counter + "ex'>HTML5 Font Size " + counter + "ex</p>")
             }
+
+            var colors = ["d6eaf8", "a9cce3", "aed6f1", "85c1e9",
+                           "5dade2", "3498db", "2e86c1", "2874a6"];
+            for (var counter = 1; counter <= 7; counter++) {
+                document.writeln("<p style='font-size:" + counter + 
+                "ex; color: #" + colors[counter] + ";'>HTML5 font size " + counter + "ex</p>")
+            }
+
+
+            // Comment out above code to see this function work.
+            function sum(min, max, inc) {
+                var total = 0;
+                for (var num = min; num <= max; num += inc) {
+                    total += num;
+                }
+                return total;
+            };
+
+            var result = sum(0, 10, 1);
+            document.writeln('The sum of integers is ' + result);
+
         </script>
     </head>
 </html>
