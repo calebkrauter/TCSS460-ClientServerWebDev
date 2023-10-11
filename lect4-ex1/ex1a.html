@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Printing a line with multiple statements</title>
+        <script type="text/javascript">
+            document.writeln("<h1 style='color: blue'>");
+            document.writeln("Welcome to Javascript " +
+                "programming!</h1>");
+            // PROMPT ALERT
+            window.alert("Welcome to \n JS!");
+           
+            // PROMPT for input
+            var name;
+            name = window.prompt("Please enter your name");
+            document.writeln("<h1>Hey " + name + ", welcome!</h1>");
+
+            var firstNum, secondNum, sum;
+            // read two integer values from user input
+            firstNum = parseInt(window.prompt("Enter first integer", "0"));
+            secondNum = parseInt(window.prompt("Enter second integer", "0"));
+            // Add the numbers
+            sum = firstNum + secondNum;
+
+            // Display results
+            document.writeln("<h1>The sum is "  + sum.toString() + ".</h1>");
+
+            var newName;
+            var now = new Date();
+            var hour = now.getHours();
+            newName = window.prompt("Please enter your name");
+            if (hour < 12) { // morning
+                document.write("<h1 style='color: red'>GOOD MORNING ");
+            } else if (hour > 12) { // afternoon
+                hour = hour - 12; // convert to 12-hour clock
+                if (hour < 6) { // before 6pm
+                    document.write("<h1>Good afternoon ");
+                } else if (hour >= 6) { // after 6pm
+                    document.write("<h1>Good Evening ");
+                }
+            }
+
+            var timeMin = now.getMinutes();
+            document.writeln(newName + ", welcome to JS, the time is <\h1>" 
+            + hour + ":" + timeMin);
+
+            for (var counter = 1; counter <= 7; counter++) {
+                document.writeln("<p style ='font-size:" +
+                counter + "ex'>HTML5 Font Size " + counter + "ex</p>")
+            }
+        </script>
+    </head>
+</html>
