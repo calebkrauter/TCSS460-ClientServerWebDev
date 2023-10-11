@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <p id="here"> hello <span>there</span></p>
+        <ul>
+            <li>France</li>
+            <li>Spain</li>
+            <li>Thailand</li>
+        </ul>
+        <div id="main">
+            <a href="somewhere.html"><img src="whatever.gif" class="thumb"></a>
+        </div>
+        <script type="text/javascript">
+
+var colors = ["d6eaf8", "a9cce3", "aed6f1", "85c1e9",
+                           "5dade2", "3498db", "2e86c1", "2874a6"];
+            document.body.style.backgroundColor = "#" + colors[Math.floor(Math.random() * 7) + 1] 
+
+            var node = document.getElementById("here");
+            console.log(node.innerHTML);
+            console.log(node.textContent);
+
+            var items = document.getElementsByTagName("li")
+
+            for (var i = 0; i < items.length; i++) {
+                console.log(items[i].textContent)
+            }
+
+            // Selector allows css notation
+            var link =  document.querySelector("#main a")
+            console.log(link.href);
+
+            var img = document.querySelector("#main img");
+            console.log(img.src);
+            console.log(img.className);
+
+            // If you retrieve the element node you can change its style
+
+            var items = document.getElementsByTagName("li");
+            for (var i = 0; i < items.length; i++) {
+                items[i].textContent = items[i].textContent + " (" + (i+1) + ')';
+            }
+
+            // if (status == 1) {
+            //     document.getElementById(linkC).className = 'disabledLink';
+            //     document.getElementById(linkC).onclick = "return false";
+            //     document.getElementById(linkF).classList.remove("disabledLink");
+            //     document.getElementById(linkF).href = "#"
+            //     document.getElementById(linkF).onclick = function () { convert(0)};
+            //     document.getElementById("unit").innerHTML = "&#8451;";
+            //     for (var i = 0; i < elements.length; i++) {
+            //         elements[i].textContent = ((parseInt(elements[i].textContent) - 32) * 0.556).toFixed(0); 
+            //     }
+            // } else {
+            //     document.getElementById(linkF).className = 'disabledLink';
+            //     document.getElementById(linkF).onclick = "return false";
+            //     document.getElementById(linkC).classList.remove("disabledLink");
+            //     document.getElementById(linkC).href = "#"
+            //     document.getElementById(linkC).onclick = function () { convert(1)};
+            //     document.getElementById("unit").innerHTML = "&#8457;";            
+            //     for (var i = 0; i < elements.length; i++) {
+            //         elements[i].textContent = ((parseInt(elements[i].textContent) * 1.8) + 32).toFixed(0); 
+            //     }
+            // }
+        </script>
+    </head>
+</html>
