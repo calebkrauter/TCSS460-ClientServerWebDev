@@ -1,0 +1,36 @@
+{
+    "questions": 
+    [
+        {
+            "question": "Who is the founder of Apple Computer?",
+            "choices": ["Bill Gates", "Steve Jobs", "Stephen Hawking", "Mark Zuckerberg"],
+            "correct": "B"
+        },
+        {
+            "question": "Which of the following is not a computer peripheral?",
+            "choices": ["Mouse","Keyboard","Motherboard","Monitor"],
+            "correct": "C"
+        },
+        {
+            "question": "____ provides on-demand availability of computational resources such as data storage, memory remotely via the Internet.",
+            "choices": ["Fog Computing","Parallel Computing","Grid Computing","Cloud Computing"],
+            "correct": "D"
+        },
+        {
+            "question": "The headquarter of Starbucks is in ___.",
+            "choices": ["Seattle","Los Angles","San Francisco","New York"],
+            "correct": "A"
+        },
+        {
+            "question": "What does CPU stand for ____.",
+            "choices": ["Central Power Unit","Central Processing Unit","Central Parallel Uniform","Computer Playground Unit"],
+            "correct": "B"
+        }
+        ,
+        {
+            "question": "Who owns Twitch Interactive",
+            "choices": ["Amazon","Microsoft","Apple","Google"],
+            "correct": "A"
+        }
+    ]
+    }

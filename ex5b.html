@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ex5b</title>
+    </head>
+    <body>
+        <div id="example">
+            <p>Click anywhere within the div element</p>
+        </div>
+    
+        <script type="text/javascript">
+            var div = document.querySelector("div#example");
+            div.addEventListener('click', function (e) {
+                // find the x and y coordinate
+                var x = e.clientX; // return the x coordinate
+                var y = e.clientY; // return the y coordinate
+
+                // output the console the x and y coordinates
+                console.log("location on screen is: " + x + ", " + y);
+            });
+
+        </script>
+    </body>
+</html>

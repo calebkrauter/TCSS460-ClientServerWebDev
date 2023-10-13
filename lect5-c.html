@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Modules 2 Examples</title>
+
+    <head>
+        <style>
+            .container {
+                text-align: center;
+            }
+
+            #uwbutton {
+                background-color: #4b2e83;
+                /* b7a57a */
+                color: #e8e3d3;
+                padding: 10px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                font-weight: 500;
+                margin: 4px 2px;
+                cursor: pointer;
+                border-radius: 5px;
+                letter-spacing: 2px;
+                border-style: solid;
+                border-width: thin;
+            }
+
+            #uwbutton:hover {
+                background-color: #e8e3d3;
+                color: #4b2e83;
+                border-color: #4b2e83;
+            }
+
+            p {
+                font-size: 12px;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            h2 {
+                font-size: 32px;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                color: #4b2e83;
+            }
+
+            body {
+                background-color: #e8e3d3;
+            }
+
+            table,
+            th,
+            td {
+                border-collapse: collapse;
+                border: 1px solid black;
+                width: 600px;
+                margin-left: auto;
+                margin-right: auto;
+                font-family: Arial, Helvetica, sans-serif;
+                visibility: hidden;
+            }
+
+            th,
+            td {
+                padding: 10px;
+                text-align: left;
+                visibility: inherit
+            }
+
+            tr:nth-child(even) {
+                background-color: #ede4ff
+            }
+
+            th {
+                background-color: #4b2e83;
+                color: #e8e3d3;
+            }
+
+            #answer {
+                background-color: #20ad27;
+                color: #f3eac3;
+                display: none;
+            }
+        </style>
+    </head>
+
+<body>
+
+    <div class='container'>
+        <h2>Quiz Time</h2>
+        <p>This example will randomize questions from JSON file!</p>
+        <input type='submit' id='uwbutton' value='ask me!'>
+        <br>
+        <br>
+
+        <table id="question-table">
+            <tr id="question">
+                <th></th>
+            </tr>
+            <tr id="choice1">
+                <td><a id="A" href="#"></a></td>
+            </tr>
+            <tr id="choice2">
+                <td><a id="B" href="#"></a></td>
+            </tr>
+            <tr id="choice3">
+                <td><a id="C" href="#"></a></td>
+            </tr>
+            <tr id="choice4">
+                <td><a id="D" href="#"></a></td>
+            </tr>
+            <tr id="answer">
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+<script type='text/javascript'>
+    document.getElementById('uwbutton').addEventListener('click', loadData);
+
+    var correctAnswer;
+    var correctAnswerText;
+    var counter = 0;
+
+    document.getElementById('choice1').addEventListener('click', checkAnswer);
+    document.getElementById('choice2').addEventListener('click', checkAnswer);
+    document.getElementById('choice3').addEventListener('click', checkAnswer);
+    document.getElementById('choice4').addEventListener('click', checkAnswer);
+
+    function loadData(e) {
+        counter = 0;
+        document.getElementById("answer").style.display = "none";
+
+        const xhr = new XMLHttpRequest();
+
+        xhr.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                //console.log(this.responseText);
+                const data = JSON.parse(this.responseText);
+                const rand = Math.floor(Math.random() * Math.floor(6));
+                document.getElementById("question-table").style.visibility = "visible";
+                document.getElementById("question").childNodes[1].innerHTML = data.questions[rand].question;
+                document.getElementById("choice1").childNodes[1].firstChild.innerHTML = data.questions[rand].choices[0];
+                document.getElementById("choice2").childNodes[1].firstChild.innerHTML = data.questions[rand].choices[1];
+                document.getElementById("choice3").childNodes[1].firstChild.innerHTML = data.questions[rand].choices[2];
+                document.getElementById("choice4").childNodes[1].firstChild.innerHTML = data.questions[rand].choices[3];
+                correctAnswer = data.questions[rand].correct;
+            }
+        }
+        xhr.open('GET', 'data.json', true);
+
+        xhr.send();
+    }
+
+    function checkAnswer(e) {
+        document.getElementById("answer").style.display = "none";
+        counter += 1;
+        if ((counter < 2) && (correctAnswer == e.target.id))
+         counter += 1;
+
+        if (correctAnswer == e.target.id) {
+            document.getElementById("answer").childNodes[1].innerHTML = "Yes, the correct answer is: " + correctAnswer;
+            document.getElementById("answer").style.display = "block";
+            document.getElementById("answer").style.borderCollapse = "collapse";
+            document.getElementById("answer").style.backgroundColor = "#20ad27";
+
+            console.log("correct");
+        }
+        else if ((counter < 2) && (correctAnswer != e.target.id))
+        {
+            document.getElementById("answer").style.backgroundColor = "#ad2020";
+            document.getElementById("answer").style.display = "block";
+            document.getElementById("answer").childNodes[1].innerHTML = "Too bad, this is not the correct answer.";
+            document.getElementById(e.target.id).outerHTML = ""
+        }
+        else
+        {
+            alert("oops, you missed this question twice now. Try another one!")
+            location.reload();
+        }
+    }
+
+    
+</script>
+
+
+
+</html>
