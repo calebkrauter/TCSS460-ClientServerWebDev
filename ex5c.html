@@ -42,7 +42,13 @@
         </div>
         <script type="text/javascript">
             document.getElementById("uwbutton").addEventListener('click', loadData)
-            
+            var fn, sn;
+            var tn;
+            fn = window.prompt("1");
+            sn = window.prompt("2", "0");
+            tn = fn+sn;
+            console.log(tn);
+
             // Fire events with links
             document.getElementById("choice1").addEventListener('click', checkAnswer);
             document.getElementById("choice2").addEventListener('click', checkAnswer);
@@ -91,7 +97,7 @@
                         document.getElementById(e.target.id).outerHTML = "";
                     }
                 } else {
-                    alert("oops, you missed this question twice now. Try another.");
+                    window.alert("oops, you missed this question twice now. Try another.");
                     location.reload();
                 }
             }

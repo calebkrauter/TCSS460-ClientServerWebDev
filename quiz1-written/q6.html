@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html> 
+    <title>q6</title>
+    <head>
+    </head>
+    <style>
+        body {
+            background-color: purple;
+        }
+        
+        h1.infoHeader {
+            /* text-align: center; */
+            /* color: black; */
+            font-family: 'Courier New', Courier, monospace;
+        }
+        
+        h2.randNum {
+            text-align: center;
+            color: black;
+            font-family: 'Arial Narrow Bold', sans-serif;
+        }
+        input.inputVal {
+            width: 200px;
+        }
+        
+        </style>
+    <body>
+        <script type="text/javascript">
+                document.getElementById("infoHeader").style.textAlign = "center";
+
+            function controlBackground() {
+
+
+            };
+
+            function updateVal() {
+                document.getElementById("#randNum").append("5");
+            };
+        </script>
+
+        <!-- I am confused... Guess the square or square root? I am going with square root.-->
+        <h1 class="infoHeader" id="infoHeader">
+            Hey you! Welcome to my game. <br>
+            Guess the square root of a random number between 10 and 50! <br>
+            If you get it right then you're good at MATH...
+        </h1>
+        <div class="questionSection">
+            <h2 class="randNum">Place Holder</h2>
+            <input class="inputVal" id="inputField" placeholder="0" >
+        </div>
+    </body>
+</html>
