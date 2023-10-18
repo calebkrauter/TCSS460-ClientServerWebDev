@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html> 
+    <!--
+        I didn't have enough time or experience in JS. Definitely going
+        to do the extra practice before the next quiz likely.
+    -->
     <title></title>
     <head>
 
@@ -13,12 +17,13 @@
         }
 
         th.tableHeader {
-            padding-right: 10px;
+            padding-right: 20px;
             background-color: blue;
             border-style: solid;
             border-width: 1px;
             border-color: blue;
             color: white;
+            text-align: left;
         }
         td.col1a {
             background-color: white;
@@ -35,6 +40,7 @@
 
         }
         td.col2a {
+            width: 200px;
             background-color: white;
             border-style: solid;
             border-width: 1px;
@@ -48,8 +54,38 @@
             border-color: lightblue;
 
         }
+        td:hover {
+            background-color: red;
+        }
     </style>
     <body>
+        <script text="text/javascript">
+            // I can't seem to remeber how to link the JS to the html elements
+            // so I can adjust the css...
+            function calcVal() {
+                document.getElementById("col2a").innerHTML = "testVal";
+
+                var p, r, n, a;
+                r = 0.05;
+                p = 1000;
+                n = 10;
+
+                for (i = 0; i < n; i++) {
+                    var b = 1 + r;
+                    var val = Math.pow(b, n);
+                    a = p * val;
+                    // For each right col fill in the val
+                    // with the new price
+                }
+
+
+
+            };
+            function copy() {
+                document.getElementById(ClipboardEvent, "doubleclick")
+            }
+        </script>
+
         <div>
             <table class="table1">
                 <tr>
@@ -58,7 +94,7 @@
                 </tr>
                 <tr>
                     <td class="col1a">1</td>
-                    <td class="col2a">val</td>
+                    <td class="col2a" id="col2a">val</td>
                 </tr>
                 <tr>
                     <td class="col1b">2</td>

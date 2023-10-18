@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<!--
+    Got really stuck with the JS. Not sure how some of the JS interacts
+    with the css and html.
+-->
 <html> 
     <title>q6</title>
     <head>
@@ -9,7 +13,7 @@
         }
         
         h1.infoHeader {
-            /* text-align: center; */
+            text-align: center;
             /* color: black; */
             font-family: 'Courier New', Courier, monospace;
         }
@@ -24,17 +28,28 @@
         }
         
         </style>
-    <body>
-        <script type="text/javascript">
-                document.getElementById("infoHeader").style.textAlign = "center";
+    <body id="body">
+        <script text="text/javascript">
+            document.getElementById("body").style.backgroundColor = "red";
 
+            // Why isn't my function working?
             function controlBackground() {
+                
+                var randVal = Math.random(10, 50);
+                document.getElementById("randNum").innerText.replace("Place Holder for rand val", randVal);
+                if (document.getElementById("inputField").firstChild.textContent 
+                == (randVal * randVal)) {
+                    console.log("It works!"); // for testing
+                    document.getElementById("body").style.backgroundColor = "green";
+                } else {
+                    document.getElementById("body").style.backgroundColor = "red";
 
+                }
 
             };
 
             function updateVal() {
-                document.getElementById("#randNum").append("5");
+                document.getElementById("randNum").append("5");
             };
         </script>
 
@@ -45,7 +60,7 @@
             If you get it right then you're good at MATH...
         </h1>
         <div class="questionSection">
-            <h2 class="randNum">Place Holder</h2>
+            <h2 class="randNum" id="randNum">Place Holder for rand val</h2>
             <input class="inputVal" id="inputField" placeholder="0" >
         </div>
     </body>
