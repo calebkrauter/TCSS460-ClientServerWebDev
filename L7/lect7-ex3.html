@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <div class="contact">
+        <p>Caleb Krauter</p>
+        <div class="email">Show Email</div>
+    </div>
+    <div class="contact">
+        <p>Caleb Krauter</p>
+        <div class="email">Show Email</div>
+    </div>
+</head>
+
+<body>
+    <script type='text/javascript'>
+        $(".email").click(function () {
+            var fullName = $(this).prev().html();
+            var firstName = fullName.split(" ")[0];
+            var address = firstName.charAt(0) + fullName.split(" ")[1] + "@uw.edu";
+            address = address.replace(/-/g, '');
+            $(this).hide();
+            $(this).html("<a href='mailto:" + address.toLowerCase() + "'>E-Mail Me</a>");
+            $(this).show(300);
+        })
+    </script>
+</body>
+</html>

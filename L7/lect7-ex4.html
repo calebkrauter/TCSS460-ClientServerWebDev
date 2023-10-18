@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="menuBtn">Menu</div>
+    <ul id="menu">
+        <li><a href="#">Menu Item 1</a></li>
+        <li><a href="#">Menu Item 2</a></li>
+        <li><a href="#">Menu Item 3</a></li>
+        <li><a href="#">Menu Item 4</a></li>
+    </ul>
+
+    <script>
+        
+        // slideToggle is better.
+        $(function () {
+            $("#menu").hide();
+            $("#menuBtn").on("mouseenter", function () {
+                // On mouse enter the menu opens
+                $("#menu").slideDown(400);
+            });
+            $("#menuBtn").on("mouseleave", function () {
+                // On mouse enter the menu opens
+                $("#menu").slideUp(400);
+            });
+        });
+    </script>
+</body>
+
+</html>
