@@ -86,6 +86,8 @@
             var sliderSaturation = document.querySelector("#sliderSaturation");
             var sliderBrightness = document.querySelector("#sliderBrightness");
             var sliderHue = document.querySelector("#sliderHue");
+            var sliderGray = document.querySelector("#sliderGray");
+            var sliderBlur = document.querySelector("#sliderBlur");
             applyFilters();
             sliderOpacity.addEventListener("input", function() {
                 applyFilters();
@@ -99,11 +101,17 @@
             sliderHue.addEventListener("input", function() {
                 applyFilters();
             });
+            sliderGray.addEventListener("input", function() {
+                applyFilters();
+            });
+            sliderBlur.addEventListener("input", function() {
+                applyFilters();
+            });
             
         });
 
         function applyFilters() {
-            var filtersValue = "saturate(" + sliderSaturation.value + "%) brightness(" + sliderBrightness.value + "%) hue-rotate(" + sliderHue.value + "deg)";
+            var filtersValue = "saturate(" + sliderSaturation.value + "%) brightness(" + sliderBrightness.value + "%) hue-rotate(" + sliderHue.value + "deg) grayscale(" + sliderGray.value + "%) blur(" + sliderBlur.value+"px" + ")";
 
             $("#imgManipulated img").css({
                 "opacity": sliderOpacity.value/100,
@@ -114,7 +122,8 @@
             document.querySelector("#numSaturation").innerHTML = Math.floor(sliderSaturation.value/3); 
             document.querySelector("#numBrightness").innerHTML = Math.floor(sliderBrightness.value/3);
             document.querySelector("#numHue").innerHTML = sliderHue.value;
-
+            document.querySelector("#numGray").innerHTML = sliderGray.value;
+            document.querySelector("#numBlur").innerHTML = sliderBlur.value;
         }
 
     
