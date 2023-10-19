@@ -39,24 +39,30 @@
     </div>
 </main>
 <script type="text/javascript">
-    // var images = document.querySelectorAll("#thumbBox img")
-    // for (i = 1; i <= images.length; i++) {
-    //     // var displayImage = images[i]; 
-    //     // var displayImgSrc = displayImage;
-    //     images[i].addEventListener("click", function() {
-    //         console.log($(this).text());
 
-    //         // $("#imgManipulated img").attr("src", i)
-    //         // console.log(i);
-    //     });
-    // }
+    $(function() {
+    var images = document.querySelectorAll("#thumbBox img")
+    for (i = 1; i <= images.length; i++) {
 
-    $("#thumbBox img").on("click", function() {
-            console.log($(this).text());
-
-            // $("#imgManipulated img").attr("src", i)
-            // console.log(i);
+        images[0].addEventListener("click", function() {
+            $("#imgManipulated img").attr("src", "images/medium/painting1.jpg")
         });
+        images[1].addEventListener("click", function() {
+            $("#imgManipulated img").attr("src", "images/medium/painting2.jpg")
+        });
+        images[2].addEventListener("click", function() {
+            $("#imgManipulated img").attr("src", "images/medium/painting3.jpg")
+        });
+        images[3].addEventListener("click", function() {
+            $("#imgManipulated img").attr("src", "images/medium/painting4.jpg")
+        });
+        images[4].addEventListener("click", function() {
+            $("#imgManipulated img").attr("src", "images/medium/painting5.jpg")
+        });
+
+    }
+    })
+
     
 </script>    
 </body>   
