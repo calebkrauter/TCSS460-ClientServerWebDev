@@ -35,3 +35,4 @@ for (i = 0; i < ps.length; i++) {
 
 document.getElementById("msgArea").setAttribute("class", "hidden");
 //Continue at 14
+document.getElementById("features").style.backgroundColor = "green";

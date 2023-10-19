@@ -10,3 +10,17 @@ function outputBox(num) {
 }
 
 /* your code goes here */
+
+window.addEventListener("load", function() {
+   var divToGet = document.getElementById("div1");
+alert(divToGet.innerHTML);
+});
+
+window.addEventListener("load", function() {
+   var divs = document.querySelectorAll(".movingDiv");
+   for (i = 0; i < divs.length; i++) {
+      divs[i].addEventListener("mouseover", function(e) {
+         alert("triggered by " + e.target.id);
+      });
+   }
+});
