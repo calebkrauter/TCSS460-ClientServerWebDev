@@ -42,26 +42,45 @@
 
     $(function() {
     var images = document.querySelectorAll("#thumbBox img")
-    for (i = 1; i <= images.length; i++) {
 
         images[0].addEventListener("click", function() {
-            $("#imgManipulated img").attr("src", "images/medium/painting1.jpg")
+            var eventT = event.target;
+            var srcSmall = eventT.getAttribute("src");
+            var srcMedium = srcSmall.replace("small", "medium");
+            $("#imgManipulated img").attr("src", srcMedium)
+            $("figcaption").html("<em>" + images[0].getAttribute("alt") + "</em>" + "</br>" + images[0].getAttribute("title"));
         });
         images[1].addEventListener("click", function() {
-            $("#imgManipulated img").attr("src", "images/medium/painting2.jpg")
+            var eventT = event.target;
+            var srcSmall = eventT.getAttribute("src");
+            var srcMedium = srcSmall.replace("small", "medium");
+            $("#imgManipulated img").attr("src", srcMedium)
+            $("figcaption").html("<em>" + images[1].getAttribute("alt") + "</em>" + "</br>" + images[1].getAttribute("title"));
         });
         images[2].addEventListener("click", function() {
-            $("#imgManipulated img").attr("src", "images/medium/painting3.jpg")
+            var eventT = event.target;
+            var srcSmall = eventT.getAttribute("src");
+            var srcMedium = srcSmall.replace("small", "medium");
+            $("#imgManipulated img").attr("src", srcMedium)
+            $("figcaption").html("<em>" + images[2].getAttribute("alt") + "</em>" + "</br>" + images[2].getAttribute("title"));
+
         });
         images[3].addEventListener("click", function() {
-            $("#imgManipulated img").attr("src", "images/medium/painting4.jpg")
+            var eventT = event.target;
+            var srcSmall = eventT.getAttribute("src");
+            var srcMedium = srcSmall.replace("small", "medium");
+            $("#imgManipulated img").attr("src", srcMedium)
+            $("figcaption").html("<em>" + images[3].getAttribute("alt") + "</em>" + "</br>" + images[3].getAttribute("title"));
         });
         images[4].addEventListener("click", function() {
-            $("#imgManipulated img").attr("src", "images/medium/painting5.jpg")
+            var eventT = event.target;
+            var srcSmall = eventT.getAttribute("src");
+            var srcMedium = srcSmall.replace("small", "medium");
+            $("#imgManipulated img").attr("src", srcMedium)
+            $("figcaption").html("<em>" + images[4].getAttribute("alt") + "</em>" + "</br>" + images[4].getAttribute("title"));
         });
 
-    }
-    })
+    });
 
     
 </script>    
