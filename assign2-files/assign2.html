@@ -81,18 +81,33 @@
             $("figcaption").html("<em>" + images[4].getAttribute("alt") + "</em>" + "</br>" + images[4].getAttribute("title"));
         });
         
-        $(document).ready(function() {
+        $(function() {
             var opacitySlider = document.querySelector("#sliderOpacity");
             $("#imgManipulated img").css("opacity", opacitySlider.value/100);  
+            document.querySelector("#numOpacity").innerHTML = opacitySlider.value; 
             opacitySlider.addEventListener("input", function() {
                 $("#imgManipulated img").css("opacity", opacitySlider.value/100);  
+                document.querySelector("#numOpacity").innerHTML = opacitySlider.value;
             });
         });
-        $(document).ready(function() {
+        $(function() {
             var sliderSaturation = document.querySelector("#sliderSaturation");
             $("#imgManipulated img").css("filter", "saturate(" + sliderSaturation.value + "%)");  
+            document.querySelector("#numSaturation").innerHTML = Math.floor(sliderSaturation.value/3); 
             sliderSaturation.addEventListener("input", function() {
                 $("#imgManipulated img").css("filter", "saturate(" + sliderSaturation.value + "%)");  
+                document.querySelector("#numSaturation").innerHTML = Math.floor(sliderSaturation.value/3);
+
+            });
+        });
+        $(function() {
+            var sliderBrightness = document.querySelector("#sliderBrightness");
+            $("#imgManipulated img").css("filter", "brightness(" + sliderBrightness.value + "%)");  
+            document.querySelector("#numBrightness").innerHTML = Math.floor(sliderBrightness.value/3)
+            sliderBrightness.addEventListener("input", function() {
+                $("#imgManipulated img").css("filter", "brightness(" + sliderBrightness.value + "%)");  
+                document.querySelector("#numBrightness").innerHTML = Math.floor(sliderBrightness.value/3);
+
             });
         });
     });
