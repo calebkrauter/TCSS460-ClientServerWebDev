@@ -40,8 +40,9 @@
 </main>
 <script type="text/javascript">
 
+    
     $(function() {
-    var images = document.querySelectorAll("#thumbBox img")
+        var images = document.querySelectorAll("#thumbBox img")
 
         images[0].addEventListener("click", function() {
             var eventT = event.target;
@@ -63,7 +64,7 @@
             var srcMedium = srcSmall.replace("small", "medium");
             $("#imgManipulated img").attr("src", srcMedium)
             $("figcaption").html("<em>" + images[2].getAttribute("alt") + "</em>" + "</br>" + images[2].getAttribute("title"));
-
+            
         });
         images[3].addEventListener("click", function() {
             var eventT = event.target;
@@ -79,9 +80,23 @@
             $("#imgManipulated img").attr("src", srcMedium)
             $("figcaption").html("<em>" + images[4].getAttribute("alt") + "</em>" + "</br>" + images[4].getAttribute("title"));
         });
-
+        
+        $(document).ready(function() {
+            var opacitySlider = document.querySelector("#sliderOpacity");
+            $("#imgManipulated img").css("opacity", opacitySlider.value/100);  
+            opacitySlider.addEventListener("input", function() {
+                $("#imgManipulated img").css("opacity", opacitySlider.value/100);  
+            });
+        });
+        $(document).ready(function() {
+            var sliderSaturation = document.querySelector("#sliderSaturation");
+            $("#imgManipulated img").css("filter", "saturate(" + sliderSaturation.value + "%)");  
+            sliderSaturation.addEventListener("input", function() {
+                $("#imgManipulated img").css("filter", "saturate(" + sliderSaturation.value + "%)");  
+            });
+        });
     });
-
+    
     
 </script>    
 </body>   
