@@ -39,13 +39,25 @@
     </div>
 </main>
 <script type="text/javascript">
-    $(function() {
-        for (i = 0; i < $("#thumBox").length; i++) {
-            $("img").on("click", function() {
-                $("#imgManipulated img").html = $("#thumBox").html;
-            });
-        }
-    });
+    // var images = document.querySelectorAll("#thumbBox img")
+    // for (i = 1; i <= images.length; i++) {
+    //     // var displayImage = images[i]; 
+    //     // var displayImgSrc = displayImage;
+    //     images[i].addEventListener("click", function() {
+    //         console.log($(this).text());
+
+    //         // $("#imgManipulated img").attr("src", i)
+    //         // console.log(i);
+    //     });
+    // }
+
+    $("#thumbBox img").on("click", function() {
+            console.log($(this).text());
+
+            // $("#imgManipulated img").attr("src", i)
+            // console.log(i);
+        });
+    
 </script>    
 </body>   
 </html>
