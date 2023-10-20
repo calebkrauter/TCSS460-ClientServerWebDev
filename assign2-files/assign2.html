@@ -40,53 +40,34 @@
 </main>
 <script type="text/javascript">
 
-    
     $(function() {
         var images = document.querySelectorAll("#thumbBox img")
         var displayImage = $("#imgManipulated img");
 
-        // function updateDisplayImage() {
-        //     for (i = 0; i < images.length; i++) {
-        //     images[0].addEventListener("click", function()
-
-        //     }
-        // }
         images[0].addEventListener("click", function() {
-            var eventT = event.target;
-            var srcSmall = eventT.getAttribute("src");
-            var srcMedium = srcSmall.replace("small", "medium");
-            $("#imgManipulated img").attr("src", srcMedium)
-            $("figcaption").html("<em>" + images[0].getAttribute("alt") + "</em>" + "</br>" + images[0].getAttribute("title"));
-        });
+            updateDisplayImage(0);
+        })
         images[1].addEventListener("click", function() {
-            var eventT = event.target;
-            var srcSmall = eventT.getAttribute("src");
-            var srcMedium = srcSmall.replace("small", "medium");
-            $("#imgManipulated img").attr("src", srcMedium)
-            $("figcaption").html("<em>" + images[1].getAttribute("alt") + "</em>" + "</br>" + images[1].getAttribute("title"));
-        });
+            updateDisplayImage(1);
+        })
         images[2].addEventListener("click", function() {
-            var eventT = event.target;
-            var srcSmall = eventT.getAttribute("src");
-            var srcMedium = srcSmall.replace("small", "medium");
-            $("#imgManipulated img").attr("src", srcMedium)
-            $("figcaption").html("<em>" + images[2].getAttribute("alt") + "</em>" + "</br>" + images[2].getAttribute("title"));
-            
-        });
+            updateDisplayImage(2);
+        })
         images[3].addEventListener("click", function() {
-            var eventT = event.target;
-            var srcSmall = eventT.getAttribute("src");
-            var srcMedium = srcSmall.replace("small", "medium");
-            $("#imgManipulated img").attr("src", srcMedium)
-            $("figcaption").html("<em>" + images[3].getAttribute("alt") + "</em>" + "</br>" + images[3].getAttribute("title"));
-        });
+            updateDisplayImage(3);
+        })
         images[4].addEventListener("click", function() {
+            updateDisplayImage(4);
+        })
+
+        function updateDisplayImage(i) {
             var eventT = event.target;
             var srcSmall = eventT.getAttribute("src");
             var srcMedium = srcSmall.replace("small", "medium");
-            $("#imgManipulated img").attr("src", srcMedium)
-            $("figcaption").html("<em>" + images[4].getAttribute("alt") + "</em>" + "</br>" + images[4].getAttribute("title"));
-        });
+            $(displayImage).attr("src", srcMedium)
+            $("figcaption").html("<em>" + images[i].getAttribute("alt") + "</em>" + "</br>" + images[i].getAttribute("title"));
+        }
+
         // Ensures size consistency across images.
         displayImage.css({
             "width": 460 + "px",
@@ -135,7 +116,7 @@
             var filtersValue = "saturate(" + sliderSaturation.value + "%) brightness(" 
                 + sliderBrightness.value + "%) hue-rotate(" + sliderHue.value + "deg) grayscale(" 
                 + sliderGray.value + "%) blur(" + sliderBlur.value +"px" + ")";
-            $("#imgManipulated img").css({
+            $(displayImage).css({
                 "opacity": sliderOpacity.value/100,
                 "filter": filtersValue,
                 "-webkit-filter": filtersValue
