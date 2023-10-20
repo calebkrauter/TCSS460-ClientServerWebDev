@@ -43,7 +43,14 @@
     
     $(function() {
         var images = document.querySelectorAll("#thumbBox img")
+        var displayImage = $("#imgManipulated img");
 
+        // function updateDisplayImage() {
+        //     for (i = 0; i < images.length; i++) {
+        //     images[0].addEventListener("click", function()
+
+        //     }
+        // }
         images[0].addEventListener("click", function() {
             var eventT = event.target;
             var srcSmall = eventT.getAttribute("src");
@@ -80,6 +87,11 @@
             $("#imgManipulated img").attr("src", srcMedium)
             $("figcaption").html("<em>" + images[4].getAttribute("alt") + "</em>" + "</br>" + images[4].getAttribute("title"));
         });
+        // Ensures size consistency across images.
+        displayImage.css({
+            "width": 460 + "px",
+            "height": 640 + "px"
+        });
 
         $(function() {
             var sliderOpacity = document.querySelector("#sliderOpacity");
@@ -88,7 +100,8 @@
             var sliderHue = document.querySelector("#sliderHue");
             var sliderGray = document.querySelector("#sliderGray");
             var sliderBlur = document.querySelector("#sliderBlur");
-            applyFilters();
+            var resetFilters = document.querySelector("#resetFilters");
+
             sliderOpacity.addEventListener("input", function() {
                 applyFilters();
             });
@@ -107,26 +120,33 @@
             sliderBlur.addEventListener("input", function() {
                 applyFilters();
             });
-            
+            resetFilters.addEventListener("click", function() {
+                $("#resetFilters").attr("type", "button");
+                sliderOpacity.value = 100;
+                sliderSaturation.value = 100;
+                sliderBrightness.value = 100;
+                sliderHue.value = 0;
+                sliderGray.value = 0;
+                sliderBlur.value = 0;
+                applyFilters();
+            });
         });
-// Pass in params for each value so that it can easily be changed at a function's call.
         function applyFilters() {
-            var filtersValue = "saturate(" + sliderSaturation.value + "%) brightness(" + sliderBrightness.value + "%) hue-rotate(" + sliderHue.value + "deg) grayscale(" + sliderGray.value + "%) blur(" + sliderBlur.value+"px" + ")";
-
+            var filtersValue = "saturate(" + sliderSaturation.value + "%) brightness(" 
+                + sliderBrightness.value + "%) hue-rotate(" + sliderHue.value + "deg) grayscale(" 
+                + sliderGray.value + "%) blur(" + sliderBlur.value +"px" + ")";
             $("#imgManipulated img").css({
                 "opacity": sliderOpacity.value/100,
                 "filter": filtersValue,
                 "-webkit-filter": filtersValue
             });                  
             document.querySelector("#numOpacity").innerHTML = sliderOpacity.value;
-            document.querySelector("#numSaturation").innerHTML = Math.floor(sliderSaturation.value/3); 
-            document.querySelector("#numBrightness").innerHTML = Math.floor(sliderBrightness.value/3);
+            document.querySelector("#numSaturation").innerHTML = Math.floor(sliderSaturation.value); 
+            document.querySelector("#numBrightness").innerHTML = Math.floor(sliderBrightness.value);
             document.querySelector("#numHue").innerHTML = sliderHue.value;
             document.querySelector("#numGray").innerHTML = sliderGray.value;
             document.querySelector("#numBlur").innerHTML = sliderBlur.value;
         }
-
-    
     });
     
     

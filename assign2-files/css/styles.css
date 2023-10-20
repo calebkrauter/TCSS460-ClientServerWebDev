@@ -37,7 +37,8 @@ h1 {
     margin: 0;
     border: solid 1px #ccc; 
     padding: 10px;
-    width: 300px;  
+    /* I made the width larger because it couldn't fit all of the digits in hue rotate at a large value */
+    width: 320px;  
     float: left;
     margin-right: 10px;
     background-color: white;
