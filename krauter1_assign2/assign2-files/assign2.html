@@ -1,0 +1,134 @@
+<html>
+<head>
+<title>TCSS 460 | Assignment 2</title>
+<link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="css/styles.css">
+
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+</head>    
+<body class="tiled">
+<header>
+    <h1>Art Filters</h1>
+</header>
+<main>
+    <div id="sliderBox">
+        <form>
+           <label>Opacity: </label><p><input type="range" id="sliderOpacity" min="0" max="100" value="100" class="sliders" /> <span id="numOpacity">100</span>%</p>
+           <p><label>Saturation: </label><input type="range" id="sliderSaturation" min="1" max="300" value="100" class="sliders"/> <span id="numSaturation">100</span>%</p>
+           <p><label>Brightness: </label><input type="range" id="sliderBrightness" min="0" max="300" value="100" class="sliders" /> <span id="numBrightness">100</span>%</p>
+           <p><label>Hue Rotate: </label><input type="range" id="sliderHue" min="0" max="360" value="0" class="sliders" /> <span id="numHue">0</span>deg</p>
+           <p><label>Grayscale: </label><input type="range" id="sliderGray" min="0" max="100" value="0" class="sliders"/> <span id="numGray">0</span>%</p>
+           <p><label>Blur: </label><input type="range" id="sliderBlur" min="0" max="10" value="0" class="sliders" /> <span id="numBlur">0</span>px</p>
+           <p><button id="resetFilters">Reset</button> </p>
+        </form>    
+    </div>
+    <figure id="imgManipulated">
+        <img src="images/medium/painting1.jpg" > 
+        <figcaption>
+            <em>Still Life with Flowers in a Glass Vase</em> <br>
+            Jan Davidsz. de Heem, 1650 - 1683
+        </figcaption>
+    </figure>   
+    <div id="thumbBox">
+        <div><img src="images/small/painting1.jpg"  alt="Still Life with Flowers in a Glass Vase" title="Jan Davidsz. de Heem, 1650 - 1683"/></div>
+        <div><img src="images/small/painting2.jpg"  alt="Portrait of Alida Christina Assink" title="Jan Adam Kruseman, 1833"/></div>
+        <div><img src="images/small/painting3.jpg"  alt="Self-portrait" title="Vincent van Gogh, 1887"/></div>
+        <div><img src="images/small/painting4.jpg"  alt="William II, Prince of Orange, and his Bride, Mary Stuart" title="Anthony van Dyck, 1641"/></div>
+        <div><img src="images/small/painting5.jpg"  alt="Milkmaid" title="Johannes Vermeer, c. 1660"/></div>
+    </div>
+</main>
+<script type="text/javascript">
+    // This function adds interactabilty to the photos and makes them editable.
+    $(function() {
+        var images = document.querySelectorAll("#thumbBox img")
+        var displayImage = $("#imgManipulated img");
+
+        images[0].addEventListener("click", function() {
+            updateDisplayImage(0);
+        })
+        images[1].addEventListener("click", function() {
+            updateDisplayImage(1);
+        })
+        images[2].addEventListener("click", function() {
+            updateDisplayImage(2);
+        })
+        images[3].addEventListener("click", function() {
+            updateDisplayImage(3);
+        })
+        images[4].addEventListener("click", function() {
+            updateDisplayImage(4);
+        })
+
+        function updateDisplayImage(i) {
+            var eventT = event.target;
+            var srcSmall = eventT.getAttribute("src");
+            var srcMedium = srcSmall.replace("small", "medium");
+            $(displayImage).attr("src", srcMedium)
+            $("figcaption").html("<em>" + images[i].getAttribute("alt") + "</em>" + "</br>" + images[i].getAttribute("title"));
+        }
+
+        // Ensures size consistency across images.
+        displayImage.css({
+            "width": 460 + "px",
+            "height": 640 + "px"
+        });
+
+        $(function() {
+            var sliderOpacity = document.querySelector("#sliderOpacity");
+            var sliderSaturation = document.querySelector("#sliderSaturation");
+            var sliderBrightness = document.querySelector("#sliderBrightness");
+            var sliderHue = document.querySelector("#sliderHue");
+            var sliderGray = document.querySelector("#sliderGray");
+            var sliderBlur = document.querySelector("#sliderBlur");
+            var resetFilters = document.querySelector("#resetFilters");
+
+            sliderOpacity.addEventListener("input", function() {
+                applyFilters();
+            });
+            sliderSaturation.addEventListener("input", function() {
+                applyFilters();
+            });
+            sliderBrightness.addEventListener("input", function() {
+                applyFilters();
+            });
+            sliderHue.addEventListener("input", function() {
+                applyFilters();
+            });
+            sliderGray.addEventListener("input", function() {
+                applyFilters();
+            });
+            sliderBlur.addEventListener("input", function() {
+                applyFilters();
+            });
+            resetFilters.addEventListener("click", function() {
+                $("#resetFilters").attr("type", "button");
+                sliderOpacity.value = 100;
+                sliderSaturation.value = 100;
+                sliderBrightness.value = 100;
+                sliderHue.value = 0;
+                sliderGray.value = 0;
+                sliderBlur.value = 0;
+                applyFilters();
+            });
+        });
+        function applyFilters() {
+            var filtersValue = "saturate(" + sliderSaturation.value + "%) brightness(" 
+                + sliderBrightness.value + "%) hue-rotate(" + sliderHue.value + "deg) grayscale(" 
+                + sliderGray.value + "%) blur(" + sliderBlur.value +"px" + ")";
+            $(displayImage).css({
+                "opacity": sliderOpacity.value/100,
+                "filter": filtersValue,
+                "-webkit-filter": filtersValue
+            });                  
+            document.querySelector("#numOpacity").innerHTML = sliderOpacity.value;
+            document.querySelector("#numSaturation").innerHTML = Math.floor(sliderSaturation.value); 
+            document.querySelector("#numBrightness").innerHTML = Math.floor(sliderBrightness.value);
+            document.querySelector("#numHue").innerHTML = sliderHue.value;
+            document.querySelector("#numGray").innerHTML = sliderGray.value;
+            document.querySelector("#numBlur").innerHTML = sliderBlur.value;
+        }
+    });
+</script>    
+</body>   
+</html>
