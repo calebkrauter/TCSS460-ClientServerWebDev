@@ -77,7 +77,7 @@ $(document).ready(function () {
 function openAPIConnect(processText) {
   return new Promise(function (resolve, reject) {
     // ADD YOUR API KEY BELOW
-    var openAIKey = "------ REPLACE WITH YOUR API KEY HERE------";  // ADD YOU OPENAPI KEY KEY HERE
+    var openAIKey = "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";  // ADD YOU OPENAPI KEY KEY HERE
     
     // Specify the model to use: https://platform.openai.com/docs/models/
     // You may try: text-davinci-002, code-davinci-002 (different training models)
