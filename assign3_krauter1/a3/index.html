@@ -53,9 +53,16 @@
 
         <!-- SPEECH INTEGRATION - START-->
         <!-- leave this section for now as we will use to integrate speech into the form -->
+        <div class="mt-4">
+            <button class="btn btn-primary ion-android-microphone" id="start">Talk</button>
+            <br><br><br><br>
+            <button class="btn btn-secondary ion-android-microphone-off" id="stop">Stop</button>
+            <p id="status" class="lead mt-3 text-light" style="display: none">Listening ...</p>
+        </div>
         <!-- SPEECH INTEGRATION - END-->
     </div>
 </body>
 <!--SPEECH INTEGRATION FILE - START -->
+<script src="speechRecognition.js"></script>
 <!--SPEECH INTEGRATION FILE - END -->
 </html>
