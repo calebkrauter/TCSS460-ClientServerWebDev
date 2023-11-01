@@ -1,0 +1,1 @@
+In the assignment I was tasked with implementing a small amount of provided code which was given through an assignment in a tutorial like format. The main goal of the assignment was to interact with an old version of chatgpt and create a video of my interactions with it. I used an API to connect to chatGPT. I was not required to submit code.
