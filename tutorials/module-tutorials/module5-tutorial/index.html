@@ -27,6 +27,18 @@
                 <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
                     aria-selected="true">Home</a>
             </li>
+
+            <!-- This is the tab for my first web service IEX cloud from following tutorial-->
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="searchPanel-tab" data-toggle="tab" href="#searchPanel" role="tab" aria-controls="searchPanel"
+                    aria-selected="true">Stock Symbol Lookup</a>
+            </li>
+
+            <!-- This is the tab for my second web service IEX cloud from following tutorial-->
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="quotesPanel-tab" data-toggle="tab" href="#quotesPanel" role="tab" aria-controls="quotesPanel"
+                    aria-selected="true">Random Quote</a>
+            </li>
         </ul>
 
         <div class="tab-content" id="myTabContent">
@@ -73,7 +85,32 @@
                     </div>
                 </div> <!-- end .row -->
             </div>
-            
+            <!-- content for my service 1 tab stock symbol lookup-->
+            <div class="tab-pane fade show" id="searchPanel" role="tabpanel" aria-labelledby="searchPanel-tab">
+                <br>
+                <div class="card border-primary mb-3">
+                    <div class="card-header">Search Stock Prices (IEX Cloud)</div>
+                    <div class="card-body">
+                        <p class="lead">Enter a stock symbol:</p>
+                        <input type="text" id="symbol" class="form-control" placeholder="enter a stock symbol (e.g. APPL)">
+                        <br>
+                        <button type="submit" class="btn btn-primary" id="searchStock">Get Prices</button>
+                    </div>
+                </div>
+            </div>
+            <!-- content for my service 2 tab stock symbol lookup-->
+            <div class="tab-pane fade show" id="quotesPanel" role="tabpanel" aria-labelledby="quotesPanel-tab">
+                <br>
+                <div class="card border-primary mb-3">
+                    <div class="card-header">Random Quote of the day</div>
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <p class="card-text"></p>
+                        <button type="submit" class="btn btn-primary" id="getQuote">Get random Quote</button>
+                    </div>
+                </div>
+            </div>
+        
     </div>
 
 
@@ -90,6 +127,18 @@
                 </div>
                 <div class="modal-body text-justify">
                     <!-- enter details here -->
+                    <div class="card">
+                        <ul class="list-group">
+                            <li class="list-group-item" id="stockCompany"></li>
+                            <li class="list-group-item" id="stockPrice"></li>
+                            <li class="list-group-item" id="stockPrevClose"></li>
+                            <li class="list-group-item" id="stockVolume"></li>
+                            <li class="list-group-item" id="stockAveVolume"></li>    
+                            <li class="list-group-item" id="stockHigh"></li>
+                            <li class="list-group-item" id="stockLow"></li>
+                        </ul>
+
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <p id="footer-info"></p>
@@ -99,6 +148,67 @@
     </div>
 
     <script>
+        // add event listener for the serachStock button
+        // communicate with service provider 1: IEX cloud
+        // Parse response and display on the content of the tab
+        $("#searchStock").click(async function getResults() {
+            var symbol = $("#symbol").val().trim();
+
+            if (symbol === "" || symbol == undefined) {
+                alert("oops not valid, no symbol");
+            } else {
+                console.log(symbol);
+                const token = `pk_cac6206a85d3402cadefb64cb5878eea`;
+                const url = `https://cloud.iexapis.com/stable/stock/${symbol}/quote?token=${token}`;
+                console.log(url);
+                const response = await fetch (url, {
+                    method: 'GET',
+                    cache: 'no-cache',
+                    mode: 'cors',
+                    credentials: 'same-origin'
+                });
+    
+                // Handle invalid symbols
+                if (response.status != "200") {
+                    alert("You have entered an invalid symbol");
+                    return;
+                }
+
+                // convert response to JSON
+                const responseData = await response.json();
+                console.log(responseData);
+    
+                //display modal
+                infoDialog.style.display = "block";
+    
+                // map response data to HTML element in modal
+                $('.modal-title').html(responseData.symbol);
+                $('.modal-title').addClass('font-weight-bold');
+                $('#stockCompany').html("Company: " + responseData.companyName);
+                $('#stockPrice').html("Price: " + responseData.latestPrice);
+                $('#stockPrevClose').html("Previous Close: " + responseData.previousClose);
+                $('#stockVolume').html("Stock Volume: " + responseData.volume);
+                $('#stockAveVolume').html("Average Volume: " + responseData.avgTotalVolume);
+                $('#stockHigh').html("52 week high: " + responseData.week52High);
+                $('#stockLow').html("52 week low: " + responseData.week52Low);
+                $('#footer-info').html('last update: ' + responseData.latestTime);
+            }
+        });
+
+
+        // handle the clicking of the random quote button
+        $('#getQuote').click(async function() {
+            const url = `https://favqs.com/api/qotd`;
+            const response = await fetch (url, {
+                method: 'GET',
+                
+            });
+
+            const responseData = await response.json();
+            // Map the response elements to the HTML
+            $('.card-title').html(responseData.quote.author);
+            $('.card-text').html(responseData.quote.body);
+        });
 
         // retrieve mdoal
         var modal = document.getElementById("infoDialog");
