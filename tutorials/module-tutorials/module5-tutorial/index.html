@@ -198,7 +198,7 @@
 
         // handle the clicking of the random quote button
         $('#getQuote').click(async function() {
-            const url = `https://favqs.com/api/qotd`;
+            const url = 'https://corsproxy.io/?' + encodeURIComponent('https://favqs.com/api/qotd');
             const response = await fetch (url, {
                 method: 'GET',
                 
