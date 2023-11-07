@@ -14,6 +14,18 @@ const zipApi = {
   base: 'http://api.zippopotam.us/',
 };
 
+// e6b1ead423fa4a2bb2fb8c4647bfee68
+const newsApi = {
+  key: 'e6b1ead423fa4a2bb2fb8c4647bfee68',
+  base:  'https://newsapi.org/v2/everything?q=keyword&apiKey=',
+  // https://maps.googleapis.com/maps/api/js?key=mapApi.key&callback=initMap&libraries=maps,marker&v=beta
+}
+
+// const mapApi = {
+//   key: 'AIzaSyBsNCAY9b_Nts4gPSZMleno6omai3B57SA',
+//   // base: 
+//   // https://maps.googleapis.com/maps/api/js?key=mapApi.key&callback=initMap&libraries=maps,marker&v=beta
+// }
 
 function App() {
   // Use a hook to set and retrieve values.
@@ -21,6 +33,10 @@ function App() {
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState({});
   const [country, setCountry] = useState("");
+  const [news, setNews] = useState("");
+  const [length, setLength] = useState({});
+
+
   // Handle the event when search button is pressed
   const zipSearched = () => {
 
@@ -65,6 +81,40 @@ function App() {
       console.log(result);
     });
   }
+
+  const newsSearched = () => {
+    fetch(`${newsApi.base}` + `${newsApi.key}`)
+    .then(res => res.json())
+    .then(result => {
+      // Use F12 to see data.
+      setNews(result);
+      setLength(result.articles.length)
+      console.log(result);
+    });
+
+  // The next twenty lines or so were an attempt at implementing Google Maps.
+
+  // const initMap = () => {
+  //   var options = {
+  //     zoom: 8,
+  //     center: {lat: 42.3621, lng: -71.0589}
+  //   }
+
+  //   var map = new google.maps.map(document.getElementById('map'), options);
+  // }
+
+  // const mapSearched = () => {
+  //   fetch(`https://maps.googleapis.com/maps/api/js?key=${mapApi.key}&callback=${initMap}`)
+  //   .then(result => {
+  //     console.log(result);
+  //     // <gmp-map center="40.12150192260742,-100.45039367675781" zoom="4" map-id="DEMO_MAP_ID">
+  //     // <gmp-advanced-marker position="40.12150192260742,-100.45039367675781" title="My location">
+  //     // </gmp-advanced-marker>
+  //     // </gmp-map>
+  //   });
+
+  
+  }
   return (
 
     
@@ -84,7 +134,7 @@ function App() {
               <a className="nav-link" data-bs-toggle="tab" href="#cityname" aria-selected="false" role="tab" tabIndex="-1">Using City</a>
             </li>
           <li className="nav-item" role="presentation">
-            <a className="nav-link" data-bs-toggle="tab" href="#map" aria-selected="false" role="tab" tabIndex="-1">Map</a>
+            <a className="nav-link" data-bs-toggle="tab" href="#map" aria-selected="false" role="tab" tabIndex="-1">News Readings</a>
           </li>
         </ul>
         <div id="myTabContent" className="tab-content">
@@ -101,7 +151,19 @@ function App() {
             <button onClick={citySearchedUsingName}>Search</button>
           </div>
           <div className="tab-pane fade" id="map" role="tabpanel">
-            {/* Map goes here */}
+            {/* Random news article */}
+            <button onClick={newsSearched}>Find some drama...</button>
+                    {/* From Google's map maker */}
+                    
+                    <p>Here's some news! Press the button to find another article...</p>
+                    
+            {typeof news.articles != "undefined" ? (
+          <div>
+            <p>{news.articles[Math.floor(Math.random() * (length))].url}</p>
+          </div>
+        ) : (
+          "No article"
+        )}
           </div>
         
         {typeof weather.main != "undefined" ? (
@@ -113,10 +175,14 @@ function App() {
             <p>{weather.weather[0].description}</p>
           </div>
         ) : (
-          "No City found at this zip code. Try another!"
+          "No City Here"
         )}
+        
+        
+
       </div>
       </header>
+      
     </div>
   );
 }
