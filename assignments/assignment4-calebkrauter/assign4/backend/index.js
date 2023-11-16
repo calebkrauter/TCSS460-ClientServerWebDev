@@ -16,7 +16,6 @@ const dbConnection = require("./config")
 // use this library for parsing HTTP body requests
 var bodyParser = require('body-parser');
 
-
 // ----------------------------------------------
 // (A)  Create an express application instance
 //      and parses incoming requests with JSON
@@ -46,4 +45,80 @@ app.listen(3000, () => {
     console.log("Express server is running and listening");
 }); 
 
+// ---------------------------------------------- 
+// (1) Retrieve all records in population table
+// root URI: http://localhost:port/
+app.get('/', (request, response) => {
+    const sqlQuery = "SELECT * FROM population;";
+    dbConnection.query(sqlQuery, (err, result) => {
+        if (err) {
+            return response.status(400).json({Error: "Error in the SQL statement. Please check."});
+        }
+        response.setHeader('SQLQuery', sqlQuery); // Send a custom header attribute.
+        return response.status(200).json(result);
+    });
+});
 
+// ---------------------------------------------- 
+// (2) Retrieve one record by city name 
+// city URI: http://localhost:port/city 
+app.get('/:city', (request, response) => {
+    const city = request.params.city;
+    const sqlQuery = "SELECT * FROM population WHERE CITY = '" + city + "';";
+    dbConnection.query(sqlQuery, (err, result) => {
+        if (err) {
+            return response.status(400).json({Error: "Error in the SQL statement. Please check."});
+        }
+        response.setHeader('CityName', city); // Send a custom.
+        return response.status(200).json(result);
+    });
+});
+
+// ---------------------------------------------- 
+// (3) insert a new record by city name 
+// city URI: http://localhost:port/city 
+app.post('/:city', (request, response) => {
+    const sqlQuery = 'INSERT INTO POPULATION VALUES (?);';
+    const values = [request.body.city, request.body.population, request.body.populationRank,
+        request.body.populationDensity, request.body.populationDensityRank, request.body.landArea];
+    dbConnection.query(sqlQuery, [values], (err, result) => {
+        if (err) {
+            return response.status(400).json({Error: "Failed: Record was not added."});
+        }
+        return response.status(200).json({success: "Successful: Record was added!"});
+    });
+});
+
+ 
+// ---------------------------------------------- 
+// (4) update an existing record by city name 
+// city URI: http://localhost:port/city 
+app.put('/:city', (request, response) => {
+    const city = request.params.city;
+    const sqlQuery = `UPDATE POPULATION SET city = ?, population = ?,
+    populationRank = ?, populationDensity = ?, populationDensityRank = ?, landArea = ?
+    WHERE CITY = ? ;`;
+    const values = [request.body.city, request.body.population, request.body.populationRank,
+        request.body.populationDensity, request.body.populationDensityRank, request.body.landArea];
+        console.log(sqlQuery);
+        dbConnection.query(sqlQuery, [...values, city], (err, result) => {
+            if (err) {
+                return response.status(400).json({Error: "Failed: Record was not added."});
+            }
+            return response.status(200).json({Success: "Successful: Record was updated!"});
+        });
+});
+
+// ----------------------------------------------
+// (5) Delete a record by city name
+// city URI: http://localhost:port/city
+app.delete('/:city', (request, response) => {
+    const city = request.params.city;
+    const sqlQuery = "DELETE FROM population WHERE CITY = ? ; ";
+    dbConnection.query(sqlQuery, city, (err, result) => {
+        if (err) {
+            return response.status(400).json({ ERROR: "Failed: Record was not deleted." });
+        }
+        return response.status(200).json({ Success: "Successful: Record was deleted!" });
+    });
+});
