@@ -30,8 +30,8 @@ const mysqlConfig = {
     port: 3306,
     user: "testuser", 
     password: "mypassword",
-    database: "washingtondb",
-    debug: false // Connection debugging mode is ON
+    database: "peopleStatsdb",
+    debug: false // Connection debugging mode is OFF
 };
 
 // ----------------------------------------------
