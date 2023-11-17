@@ -6,9 +6,9 @@ CREATE DATABASE IF NOT EXISTS `peopleStatsdb`;
 USE `peopleStatsdb`;
 
 -- Table structure
-CREATE TABLE 'people' (
+CREATE TABLE `people` (
     `Name` varchar(50) NOT NULL,
-    `Age` double NOT NULL,
+    `ID` double NOT NULL,
     `Weight` double NOT NULL,
     `Living` varchar(3) NOT NULL,
     `Religion` varchar(50) NOT NULL,
@@ -24,24 +24,27 @@ ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Populating random data in the table for individual human stats.
 -- Data population is generated from ChatGPT 3.5 based on the following prompt:
--- "INSERT INFO `people` (`Name`, `Age`, `Weight`, `Living`, `Religion`, `Sex`) VALUES, 
---      I need 15 lines like this with random input for each of the variables"
+-- INSERT INFO `people` (`Name`, `ID`, `Weight`, `Living`, `Religion`, `Sex`) VALUES,
+--      I need 15 lines like this with random input for each of the variables.
+--      ID should be four digits long and unique. Living should be yes or no.
+--      Make sure everyone has religion or none.
 -- ChatGPT generation Start--------
-INSERT INTO `people` (`Name`, `Age`, `Weight`, `Living`, `Religion`, `Sex`) VALUES
-('John Smith', 28, 160, 'New York', 'Christianity', 'Male'),
-('Alice Johnson', 35, 130, 'Los Angeles', 'Judaism', 'Female'),
-('Michael Davis', 22, 180, 'Chicago', 'Islam', 'Male'),
-('Emily White', 40, 150, 'San Francisco', 'Buddhism', 'Female'),
-('Daniel Brown', 33, 170, 'Seattle', 'Hinduism', 'Male'),
-('Sophia Lee', 25, 120, 'Miami', 'None', 'Female'),
-('Christopher Miller', 45, 200, 'Dallas', 'Christianity', 'Male'),
-('Olivia Taylor', 30, 140, 'Atlanta', 'Atheism', 'Female'),
-('William Harris', 29, 165, 'Denver', 'Judaism', 'Male'),
-('Emma Martinez', 38, 155, 'Phoenix', 'Agnosticism', 'Female'),
-('Ryan Wilson', 31, 175, 'Boston', 'Islam', 'Male'),
-('Ava Garcia', 27, 145, 'Houston', 'Buddhism', 'Female'),
-('Matthew Thomas', 42, 190, 'Portland', 'Hinduism', 'Male'),
-('Isabella Rodriguez', 26, 135, 'San Diego', 'Christianity', 'Female'),
-('Ethan Moore', 34, 185, 'Minneapolis', 'Atheism', 'Male');
+INSERT INTO `people` (`Name`, `ID`, `Weight`, `Living`, `Religion`, `Sex`) VALUES
+('John Smith', 1234, 75.5, 'Yes', 'Christianity', 'Male'),
+('Alice Johnson', 5678, 61.2, 'Yes', 'None', 'Female'),
+('Robert Davis', 7890, 80.8, 'No', 'Islam', 'Male'),
+('Emily White', 2345, 55.0, 'Yes', 'Buddhism', 'Female'),
+('Michael Brown', 6789, 92.3, 'Yes', 'Hinduism', 'Male'),
+('Emma Miller', 8901, 68.7, 'No', 'None', 'Female'),
+('Daniel Wilson', 3456, 71.9, 'Yes', 'Judaism', 'Male'),
+('Sophia Taylor', 9012, 60.1, 'No', 'Sikhism', 'Female'),
+('Matthew Martinez', 4567, 88.4, 'Yes', 'None', 'Male'),
+('Olivia Anderson', 1235, 52.3, 'Yes', 'Christianity', 'Female'),
+('Andrew Moore', 6781, 77.0, 'No', 'None', 'Male'),
+('Ava Garcia', 3458, 65.8, 'Yes', 'Islam', 'Female'),
+('William Clark', 9014, 83.2, 'Yes', 'None', 'Male'),
+('Grace Adams', 5673, 58.6, 'No', 'Hinduism', 'Female'),
+('Ethan Turner', 2341, 70.5, 'Yes', 'None', 'Male');
+
 -- ChatGPT generation End--------
 COMMIT;

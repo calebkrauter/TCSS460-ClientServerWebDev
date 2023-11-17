@@ -46,10 +46,10 @@ app.listen(3000, () => {
 }); 
 
 // ---------------------------------------------- 
-// (1) Retrieve all records in population table
+// (1) Retrieve all records in people table
 // root URI: http://localhost:port/
 app.get('/', (request, response) => {
-    const sqlQuery = "SELECT * FROM population;";
+    const sqlQuery = "SELECT * FROM people;";
     dbConnection.query(sqlQuery, (err, result) => {
         if (err) {
             return response.status(400).json({Error: "Error in the SQL statement. Please check."});
@@ -60,27 +60,27 @@ app.get('/', (request, response) => {
 });
 
 // ---------------------------------------------- 
-// (2) Retrieve one record by city name 
-// city URI: http://localhost:port/city 
-app.get('/:city', (request, response) => {
-    const city = request.params.city;
-    const sqlQuery = "SELECT * FROM population WHERE CITY = '" + city + "';";
+// (2) Retrieve one record by name 
+// city URI: http://localhost:port/name 
+app.get('/:name', (request, response) => {
+    const name = request.params.name;
+    const sqlQuery = "SELECT * FROM people WHERE NAME = '" + name + "';";
     dbConnection.query(sqlQuery, (err, result) => {
         if (err) {
             return response.status(400).json({Error: "Error in the SQL statement. Please check."});
         }
-        response.setHeader('CityName', city); // Send a custom.
+        response.setHeader('Name', name); // Send a custom.
         return response.status(200).json(result);
     });
 });
 
 // ---------------------------------------------- 
-// (3) insert a new record by city name 
-// city URI: http://localhost:port/city 
-app.post('/:city', (request, response) => {
-    const sqlQuery = 'INSERT INTO POPULATION VALUES (?);';
-    const values = [request.body.city, request.body.population, request.body.populationRank,
-        request.body.populationDensity, request.body.populationDensityRank, request.body.landArea];
+// (3) insert a new record by name 
+// city URI: http://localhost:port/name 
+app.post('/:name', (request, response) => {
+    const sqlQuery = 'INSERT INTO PEOPLE VALUES (?);';
+    const values = [request.body.name, request.body.id, request.body.weight,
+        request.body.living, request.body.religion, request.body.sex];
     dbConnection.query(sqlQuery, [values], (err, result) => {
         if (err) {
             return response.status(400).json({Error: "Failed: Record was not added."});
@@ -91,17 +91,17 @@ app.post('/:city', (request, response) => {
 
  
 // ---------------------------------------------- 
-// (4) update an existing record by city name 
-// city URI: http://localhost:port/city 
-app.put('/:city', (request, response) => {
-    const city = request.params.city;
-    const sqlQuery = `UPDATE POPULATION SET city = ?, population = ?,
-    populationRank = ?, populationDensity = ?, populationDensityRank = ?, landArea = ?
-    WHERE CITY = ? ;`;
-    const values = [request.body.city, request.body.population, request.body.populationRank,
-        request.body.populationDensity, request.body.populationDensityRank, request.body.landArea];
+// (4) update an existing record by name 
+// city URI: http://localhost:port/name 
+app.put('/:name', (request, response) => {
+    const name = request.params.name;
+    const sqlQuery = `UPDATE PEOPLE SET name = ?, id = ?,
+    weight = ?, living = ?, religion = ?, sex = ?
+    WHERE NAME = ? ;`;
+    const values = [request.body.name, request.body.id, request.body.weight,
+        request.body.living, request.body.religion, request.body.sex];
         console.log(sqlQuery);
-        dbConnection.query(sqlQuery, [...values, city], (err, result) => {
+        dbConnection.query(sqlQuery, [...values, name], (err, result) => {
             if (err) {
                 return response.status(400).json({Error: "Failed: Record was not added."});
             }
@@ -110,12 +110,12 @@ app.put('/:city', (request, response) => {
 });
 
 // ----------------------------------------------
-// (5) Delete a record by city name
-// city URI: http://localhost:port/city
-app.delete('/:city', (request, response) => {
-    const city = request.params.city;
-    const sqlQuery = "DELETE FROM population WHERE CITY = ? ; ";
-    dbConnection.query(sqlQuery, city, (err, result) => {
+// (5) Delete a record by ID
+// city URI: http://localhost:port/name/id
+app.delete('/:id', (request, response) => {
+    const id = request.params.id;
+    const sqlQuery = "DELETE FROM people WHERE id = ? ; ";
+    dbConnection.query(sqlQuery, id, (err, result) => {
         if (err) {
             return response.status(400).json({ ERROR: "Failed: Record was not deleted." });
         }

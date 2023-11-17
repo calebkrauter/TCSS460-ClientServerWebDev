@@ -31,7 +31,7 @@ const mysqlConfig = {
     user: "testuser", 
     password: "mypassword",
     database: "peopleStatsdb",
-    debug: false // Connection debugging mode is OFF
+    debug: true // Connection debugging mode is OFF
 };
 
 // ----------------------------------------------
