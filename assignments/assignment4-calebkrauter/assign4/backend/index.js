@@ -46,18 +46,18 @@ app.listen(3000, () => {
 }); 
 
 // ---------------------------------------------- 
-// (1) Retrieve all records in people table
-// root URI: http://localhost:port/
-app.get('/', (request, response) => {
-    const sqlQuery = "SELECT * FROM people;";
-    dbConnection.query(sqlQuery, (err, result) => {
-        if (err) {
-            return response.status(400).json({Error: "Error in the SQL statement. Please check."});
-        }
-        response.setHeader('SQLQuery', sqlQuery); // Send a custom header attribute.
-        return response.status(200).json(result);
-    });
-});
+// // (1) Retrieve all records in people table
+// // root URI: http://localhost:port/
+// app.get('/', (request, response) => {
+//     const sqlQuery = "SELECT * FROM people;";
+//     dbConnection.query(sqlQuery, (err, result) => {
+//         if (err) {
+//             return response.status(400).json({Error: "Error in the SQL statement. Please check."});
+//         }
+//         response.setHeader('SQLQuery', sqlQuery); // Send a custom header attribute.
+//         return response.status(200).json(result);
+//     });
+// });
 
 // ---------------------------------------------- 
 // (2) Retrieve one record by name 
@@ -120,5 +120,21 @@ app.delete('/:id', (request, response) => {
             return response.status(400).json({ ERROR: "Failed: Record was not deleted." });
         }
         return response.status(200).json({ Success: "Successful: Record was deleted!" });
+    });
+});
+
+// ---------------------------------------------- 
+// (1) Retrieve all records in people table
+// root URI: http://localhost:port/
+app.get('/:name/:id', (request, response) => {
+    const name = request.params.name;
+    const id = request.params.id;
+    const sqlQuery = "SELECT * FROM people WHERE NAME = " + name + ", ID = " + id + " ;";
+    dbConnection.query(sqlQuery, (err, result) => {
+        if (err) {
+            return response.status(400).json({Error: "Error in the SQL statement. Please check."});
+        }
+        response.setHeader('Name', name); // Send a custom.
+        return response.status(200).json(result);
     });
 });
