@@ -7,9 +7,9 @@ USE `peopleStatsdb`;
 
 -- Table structure
 CREATE TABLE `people` (
-    `Name` varchar(50) NOT NULL,
     `ID` double NOT NULL,
-    `Weight` double NOT NULL,
+    `Name` varchar(50) NOT NULL,
+    `Job` varchar(50) NOT NULL,
     `Living` varchar(3) NOT NULL,
     `Religion` varchar(50) NOT NULL,
     `Sex` varchar(10) NOT NULL
@@ -24,27 +24,34 @@ ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Populating random data in the table for individual human stats.
 -- Data population is generated from ChatGPT 3.5 based on the following prompt:
--- INSERT INFO `people` (`Name`, `ID`, `Weight`, `Living`, `Religion`, `Sex`) VALUES,
---      I need 15 lines like this with random input for each of the variables.
---      ID should be four digits long and unique. Living should be yes or no.
---      Make sure everyone has religion or none.
+-- INSERT INFO `people` (`ID`, `Name`, `Job`, `Living`, `Religion`, `Sex`) VALUES,
+--      I need 20 lines like this with random input for each of the variables.
+--       ID should be random, unique and four digits long. Living should be yes or no.
+--      Make sure everyone has religion or none. 
+--      There should only be five job titles for 'Job' used and they should be tech related. 
+--      Use Front End Programmer, IT Help Desk, Manager, Full Stack Developer, Systems Developer.
 -- ChatGPT generation Start--------
-INSERT INTO `people` (`Name`, `ID`, `Weight`, `Living`, `Religion`, `Sex`) VALUES
-('John Smith', 1234, 75.5, 'Yes', 'Christianity', 'Male'),
-('Alice Johnson', 5678, 61.2, 'Yes', 'None', 'Female'),
-('Robert Davis', 7890, 80.8, 'No', 'Islam', 'Male'),
-('Emily White', 2345, 55.0, 'Yes', 'Buddhism', 'Female'),
-('Michael Brown', 6789, 92.3, 'Yes', 'Hinduism', 'Male'),
-('Emma Miller', 8901, 68.7, 'No', 'None', 'Female'),
-('Daniel Wilson', 3456, 71.9, 'Yes', 'Judaism', 'Male'),
-('Sophia Taylor', 9012, 60.1, 'No', 'Sikhism', 'Female'),
-('Matthew Martinez', 4567, 88.4, 'Yes', 'None', 'Male'),
-('Olivia Anderson', 1235, 52.3, 'Yes', 'Christianity', 'Female'),
-('Andrew Moore', 6781, 77.0, 'No', 'None', 'Male'),
-('Ava Garcia', 3458, 65.8, 'Yes', 'Islam', 'Female'),
-('William Clark', 9014, 83.2, 'Yes', 'None', 'Male'),
-('Grace Adams', 5673, 58.6, 'No', 'Hinduism', 'Female'),
-('Ethan Turner', 2341, 70.5, 'Yes', 'None', 'Male');
+INSERT INTO `people` (`ID`, `Name`, `Job`, `Living`, `Religion`, `Sex`) VALUES
+(1001, 'John Doe', 'Front End Programmer', 'yes', 'Christianity', 'Male'),
+(1002, 'Jane Doe', 'IT Help Desk', 'no', NULL, 'Female'),
+(1003, 'Alice Smith', 'Manager', 'yes', 'Buddhism', 'Female'),
+(1004, 'Bob Johnson', 'Full Stack Developer', 'yes', 'None', 'Male'),
+(1005, 'John Doe', 'Systems Developer', 'no', 'Hinduism', 'Male'),
+(1006, 'Mary Johnson', 'Front End Programmer', 'yes', NULL, 'Female'),
+(1007, 'Alice Smith', 'IT Help Desk', 'no', 'Judaism', 'Female'),
+(1008, 'Charlie Brown', 'Manager', 'no', NULL, 'Male'),
+(1009, 'David Williams', 'Full Stack Developer', 'yes', 'Islam', 'Male'),
+(1010, 'Jane Doe', 'Systems Developer', 'yes', NULL, 'Female'),
+(1011, 'John Doe', 'Front End Programmer', 'no', 'Christianity', 'Male'),
+(1012, 'Alice Smith', 'IT Help Desk', 'yes', 'None', 'Female'),
+(1013, 'Bob Johnson', 'Manager', 'yes', 'Buddhism', 'Male'),
+(1014, 'Mary Johnson', 'Full Stack Developer', 'no', 'Hinduism', 'Female'),
+(1015, 'David Williams', 'Systems Developer', 'yes', 'Judaism', 'Male'),
+(1016, 'Jane Doe', 'Front End Programmer', 'no', NULL, 'Female'),
+(1017, 'Charlie Brown', 'IT Help Desk', 'yes', 'Islam', 'Male'),
+(1018, 'Alice Smith', 'Manager', 'yes', 'None', 'Female'),
+(1019, 'John Doe', 'Full Stack Developer', 'no', 'Christianity', 'Male'),
+(1020, 'Mary Johnson', 'Systems Developer', 'yes', 'Buddhism', 'Female');
 
 -- ChatGPT generation End--------
 COMMIT;

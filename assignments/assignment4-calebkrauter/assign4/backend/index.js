@@ -46,30 +46,30 @@ app.listen(3000, () => {
 }); 
 
 // ---------------------------------------------- 
-// // (1) Retrieve all records in people table
-// // root URI: http://localhost:port/
-// app.get('/', (request, response) => {
-//     const sqlQuery = "SELECT * FROM people;";
-//     dbConnection.query(sqlQuery, (err, result) => {
-//         if (err) {
-//             return response.status(400).json({Error: "Error in the SQL statement. Please check."});
-//         }
-//         response.setHeader('SQLQuery', sqlQuery); // Send a custom header attribute.
-//         return response.status(200).json(result);
-//     });
-// });
-
-// ---------------------------------------------- 
-// (2) Retrieve one record by name 
-// city URI: http://localhost:port/name 
-app.get('/:name', (request, response) => {
-    const name = request.params.name;
-    const sqlQuery = "SELECT * FROM people WHERE NAME = '" + name + "';";
+// (1) Retrieve all records in people table
+// root URI: http://localhost:port/
+app.get('/', (request, response) => {
+    const sqlQuery = "SELECT * FROM people;";
     dbConnection.query(sqlQuery, (err, result) => {
         if (err) {
             return response.status(400).json({Error: "Error in the SQL statement. Please check."});
         }
-        response.setHeader('Name', name); // Send a custom.
+        response.setHeader('SQLQuery', sqlQuery); // Send a custom header attribute.
+        return response.status(200).json(result);
+    });
+});
+
+// ---------------------------------------------- 
+// (2) Retrieve one record by id
+// city URI: http://localhost:port/id 
+app.get('/:id', (request, response) => {
+    const id = request.params.id;
+    const sqlQuery = "SELECT * FROM people WHERE ID = '" + id + "';";
+    dbConnection.query(sqlQuery, (err, result) => {
+        if (err) {
+            return response.status(400).json({Error: "Error in the SQL statement. Please check."});
+        }
+        response.setHeader('ID', id); // Send a custom.
         return response.status(200).json(result);
     });
 });
@@ -91,17 +91,17 @@ app.post('/:name', (request, response) => {
 
  
 // ---------------------------------------------- 
-// (4) update an existing record by name 
-// city URI: http://localhost:port/name 
-app.put('/:name', (request, response) => {
-    const name = request.params.name;
+// (4) update an existing record by id 
+// id URI: http://localhost:port/id 
+app.put('/:id', (request, response) => {
+    const id = request.params.id;
     const sqlQuery = `UPDATE PEOPLE SET name = ?, id = ?,
     weight = ?, living = ?, religion = ?, sex = ?
     WHERE NAME = ? ;`;
     const values = [request.body.name, request.body.id, request.body.weight,
         request.body.living, request.body.religion, request.body.sex];
         console.log(sqlQuery);
-        dbConnection.query(sqlQuery, [...values, name], (err, result) => {
+        dbConnection.query(sqlQuery, [...values, id], (err, result) => {
             if (err) {
                 return response.status(400).json({Error: "Failed: Record was not added."});
             }
@@ -126,10 +126,10 @@ app.delete('/:id', (request, response) => {
 // ---------------------------------------------- 
 // (1) Retrieve all records in people table
 // root URI: http://localhost:port/
-app.get('/:name/:id', (request, response) => {
+app.get('/:id/:name', (request, response) => {
     const name = request.params.name;
     const id = request.params.id;
-    const sqlQuery = "SELECT * FROM people WHERE NAME = " + name + ", ID = " + id + " ;";
+    const sqlQuery = "SELECT * FROM people WHERE id = '" + id + "' AND name = '" + name + "' ;";
     dbConnection.query(sqlQuery, (err, result) => {
         if (err) {
             return response.status(400).json({Error: "Error in the SQL statement. Please check."});
@@ -138,3 +138,39 @@ app.get('/:name/:id', (request, response) => {
         return response.status(200).json(result);
     });
 });
+
+// ---------------------------------------------- 
+// (1) Get person with id name and job
+// root URI: http://localhost:port/
+app.get('/:id/:name/:job', (request, response) => {
+    const name = request.params.name;
+    const id = request.params.id;
+    const job = request.params.job;
+    const sqlQuery = "SELECT * FROM people WHERE id = '" + id 
+    + "' AND name = '" + name + "' AND job = '" + job + "' ;";
+    dbConnection.query(sqlQuery, (err, result) => {
+        if (err) {
+            return response.status(400).json({Error: "Error in the SQL statement. Please check."});
+        }
+        response.setHeader('job', job); // Send a custom.
+        return response.status(200).json(result);
+    });
+});
+
+// ---------------------------------------------- 
+// (1) Get person with id name and job
+// root URI: http://localhost:port/
+app.get('/id/:name/:job', (request, response) => {
+    const name = request.params.name;
+    const job = request.params.job;
+    const sqlQuery = "SELECT * FROM people WHERE name = '" + name + "' AND job = '" + job + "' ;";
+    dbConnection.query(sqlQuery, (err, result) => {
+        if (err) {
+            return response.status(400).json({Error: "Error in the SQL statement. Please check."});
+        }
+        response.setHeader('job', job); // Send a custom.
+        return response.status(200).json(result);
+    });
+});
+
+// Include functions to get multiple John Doe names by name, also getting all  of the same job or same job and name
