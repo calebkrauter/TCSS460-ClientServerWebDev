@@ -95,8 +95,8 @@ app.get('/:cpuBrand/:price/:coreCount/:serialNumber', (request, response) => {
 
 
 // ---------------------------------------------- 
-// (4) insert a new cpu by serial number (User uploads cpu to sell by serial number to help ensure that the unique serial number is listed acurately -> consumer)
-// cpus URI: http://localhost:port/serialNumber 
+// (4) Insert a new cpu by serial number (User uploads cpu to sell by serial number to help ensure that the unique serial number is listed acurately -> consumer)
+// root URI: http://localhost:port/ 
 app.post('/:serialNumber', (request, response) => {
     const sqlQuery = 'INSERT INTO cpus VALUES (?);';
     const values = [request.body.cpuBrand, request.body.price, request.body.coreCount,

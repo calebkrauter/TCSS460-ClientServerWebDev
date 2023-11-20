@@ -6,12 +6,26 @@
     <title>A4</title>
 </head>
 <body>
+
+    <style>
+        .odd {
+            background-color: yellow;
+        }
+        tr :hover{
+            border-style: solid;
+            border-width: 1px;
+            border-color: black;
+            background-color: aqua;
+        }
+    </style>
+
     <div>
         <table>
+            <h1>Web Service 1: public etailer site for posting cpus</h1>
             <th>Service Endpoint</th>
             <th>HTTP METHOD</th>
             <th>Function/Expected Output</th>
-            <tr>
+            <tr class="odd">
                 <td>http://localhost:3000/:cpuBrand/:price</td>
                 <td>GET</td>
                 <td>Retrieve all cpus in cpus table that share the same brand and price. 
@@ -23,10 +37,75 @@
                 <td>Retrieve all cpus in cpus table that share the same brand, price, 
                     and core count.(User searches cpu filtered by brand and price and core count -> consumer)</td>
             </tr>
-            <tr>
+            <tr class="odd">
                 <td>http://localhost:3000/:cpuBrand/:price/:coreCount/:serialNumber</td>
                 <td>GET</td>
                 <td>Retrieve all data on cpu a specific cpu brand. (User to search by serial number to review listing.)</td>
+            </tr>
+            <tr>
+                <td>http://localhost:3000/:serialNumber</td>
+                <td>POST</td>
+                <td>Insert a new cpu by serial number (User uploads cpu to sell by serial number
+                     to help ensure that the unique serial number is listed acurately -> consumer)</td>
+            </tr>
+            <tr class="odd">
+                <td>http://localhost:3000/:cpuBrand/:price/:coreCount/:serialNumber</td>
+                <td>PUT</td>
+                <td>update an existing cpu by serialNumber (User updates listing by brand,
+                     price, corecount and serial number to verify what listing is being updated.)</td>
+            </tr>
+            <tr>
+                <td>http://localhost:3000/:cpuBrand/:price/:coreCount/:serialNumber</td>
+                <td>DELETE</td>
+                <td>Delete a cpu by serial number (User deletes listing by serial number -> consumer)</td>
+            </tr>
+        </table>
+        <br>
+        <br>
+        <h1>Web Service 2: public etailer site from the Admin's role</h1>
+
+        <table>
+            <th>Service Endpoint</th>
+            <th>HTTP METHOD</th>
+            <th>Function/Expected Output</th>
+            <tr class="odd">
+                <td>http://localhost:3000/:cpuBrand/:price</td>
+                <td>GET</td>
+                <td>Retrieve all cpus in cpus table that share the same brand and price. 
+                    (User searches cpu filtered by brand and price -> consumer)</td>
+            </tr>
+            <tr>
+                <td>http://localhost:3000/:cpuBrand/:price/:coreCount</td>
+                <td>GET</td>
+                <td>Retrieve all cpus in cpus table that share the same brand, price, 
+                    and core count.(User searches cpu filtered by brand and price and core count -> consumer)</td>
+            </tr>
+            <tr class="odd">
+                <td>http://localhost:3000/:cpuBrand/:price/:coreCount/:serialNumber</td>
+                <td>GET</td>
+                <td>Retrieve all data on cpu a specific cpu brand. (User to search by serial number to review listing.)</td>
+            </tr>
+            <tr>
+                <td>http://localhost:3000/:serialNumber</td>
+                <td>POST</td>
+                <td>Insert a new cpu by serial number (User uploads cpu to sell by serial number
+                     to help ensure that the unique serial number is listed acurately -> consumer)</td>
+            </tr>
+            <tr class="odd">
+                <td>http://localhost:3000/:cpuBrand/:price/:coreCount/:serialNumber</td>
+                <td>PUT</td>
+                <td>update an existing cpu by serialNumber (User updates listing by brand,
+                     price, corecount and serial number to verify what listing is being updated.)</td>
+            </tr>
+            <tr>
+                <td>http://localhost:3000/:cpuBrand/:price/:coreCount/:serialNumber</td>
+                <td>DELETE</td>
+                <td>Delete a cpu by serial number (User deletes listing by serial number -> consumer)</td>
+            </tr>
+            <tr>
+                <td>http://localhost:3000/:cpuBrand/:price/:coreCount/:serialNumber</td>
+                <td>DELETE</td>
+                <td>Delete a cpu by serial number (User deletes listing by serial number -> consumer)</td>
             </tr>
         </table>
     </div>
