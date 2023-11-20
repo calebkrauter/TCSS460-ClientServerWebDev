@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A4</title>
+</head>
+<body>
+    <div>
+        <table>
+            <th>Service Endpoint</th>
+            <th>HTTP METHOD</th>
+            <th>Function/Expected Output</th>
+            <tr>
+                <td>http://localhost:3000/:cpuBrand/:price</td>
+                <td>GET</td>
+                <td>Retrieve all cpus in cpus table that share the same brand and price. 
+                    (User searches cpu filtered by brand and price -> consumer)</td>
+            </tr>
+            <tr>
+                <td>http://localhost:3000/:cpuBrand/:price/:coreCount</td>
+                <td>GET</td>
+                <td>Retrieve all cpus in cpus table that share the same brand, price, 
+                    and core count.(User searches cpu filtered by brand and price and core count -> consumer)</td>
+            </tr>
+            <tr>
+                <td>http://localhost:3000/:cpuBrand/:price/:coreCount/:serialNumber</td>
+                <td>GET</td>
+                <td>Retrieve all data on cpu a specific cpu brand. (User to search by serial number to review listing.)</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
