@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A4</title>
+</head>
+<body>
+
+    <style>
+        .odd {
+            background-color: yellow;
+        }
+        tr :hover{
+            border-style: solid;
+            border-width: 1px;
+            border-color: black;
+            background-color: aqua;
+        }
+    </style>
+
+    <div>
+        <table>
+            <h1>Web Service 1: public etailer site for posting cpus</h1>
+            <th>Service Endpoint</th>
+            <th>HTTP METHOD</th>
+            <th>Function/Expected Output</th>
+            <tr class="odd">
+                <td>http://localhost:3000/:cpuBrand/:price</td>
+                <td>GET</td>
+                <td>Retrieve all cpus in cpus table that share the same brand and price. 
+                    (Consumer searches cpu filtered by brand and price.)</td>
+            </tr>
+            <tr>
+                <td>http://localhost:3000/:cpuBrand/:price/:coreCount</td>
+                <td>GET</td>
+                <td>Retrieve all cpus in cpus table that share the same brand, price, 
+                    and core count.(Consumer searches cpu filtered by brand and price and core count.)</td>
+            </tr>
+            <tr class="odd">
+                <td>http://localhost:3000/:cpuBrand/:price/:coreCount/:serialNumber</td>
+                <td>GET</td>
+                <td>Retrieve all data on cpu a specific cpu. 
+                    (Consumer to search by serial number to review their specific listing.)</td>
+            </tr>
+            <tr>
+                <td>http://localhost:3000/:serialNumber</td>
+                <td>POST</td>
+                <td>Insert a new cpu by serial number (Consumer uploads cpu to sell by serial number
+                     to help ensure that the unique serial number is listed acurately.)</td>
+            </tr>
+            <tr class="odd">
+                <td>http://localhost:3000/:cpuBrand/:price/:coreCount/:serialNumber</td>
+                <td>PUT</td>
+                <td>Update an existing cpu by serialNumber (Consumer updates listing by brand,
+                     price, core count and serial number to verify what listing is being updated.)</td>
+            </tr>
+            <tr>
+                <td>http://localhost:3000/:cpuBrand/:price/:coreCount/:serialNumber</td>
+                <td>DELETE</td>
+                <td>Delete a cpu by serial number (Consumer deletes listing by serial number.)</td>
+            </tr>
+        </table>
+        <br>
+        <br>
+        <h1>Web Service 2: public etailer site from the Admin's role</h1>
+
+        <table>
+            <th>Service Endpoint</th>
+            <th>HTTP METHOD</th>
+            <th>Function/Expected Output</th>
+            <tr class="odd">
+                <td>http://localhost:3000/</td>
+                <td>GET</td>
+                <td>Retrieve all data on cpus. (Admin may view all cpus avaliable without filter by price or other.)</td>
+            </tr>
+            <tr>
+                <td>http://localhost:3000/:cpuBrand</td>
+                <td>GET</td>
+                <td>Retrieve all cpus in cpus table that share the same brand. (Admin may want to view all cpus by brand.)</td>
+            </tr>
+            <tr class="odd">
+                <td>http://localhost:port/cpuBrand/price/coreCount/:serialNumber</td>
+                <td>GET</td>
+                <td>Retrieve cpus based on serial number. (In case Admin needs to check that there are no errors in having duplicated serial numbers and this is non-brand restricted.)</td>
+            </tr>
+            <tr>
+                <td>http://localhost:3000/:cpuBrand/:serialNumber</td>
+                <td>GET</td>
+                <td>Retrieve cpus by brand and serial number. (In case Admin needs to check that there are no errors in having duplicated serial numbers for a specific brand.)</td>
+            </tr>
+            <tr class="odd">
+                <td>http://localhost:3000/</td>
+                <td>POST</td>
+                <td>Post a listing with no specified parameters (Admin is intended to have easy post ability.)</td>
+            </tr>
+            <tr>
+                <td>http://localhost:3000/:serialNumber/</td>
+                <td>PUT</td>
+                <td>Update an existing cpu by serialNumber (Admin only needs serial number to confirm the listing because Admin has trusted role.)</td>
+            </tr>
+            <tr>
+                <td>http://localhost:3000/:serialNumber/</td>
+                <td>DELETE</td>
+                <td>Delete a cpu by serial number (Admin only needs serial number to confirm the listing.)</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
