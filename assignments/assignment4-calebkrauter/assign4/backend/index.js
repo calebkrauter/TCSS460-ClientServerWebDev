@@ -218,17 +218,16 @@ app.get('/cpuBrand/price/coreCount/:serialNumber', (request, response) => {
 // (4) Retrieve cpus by brand and serial number. 
 //      (In case Admin needs to check that there are no errors in having duplicated serial numbers for a specific brand.)
 // root URI: http://localhost:port/
-app.get('/:cpuBrand/:serialNumber', (request, response) => { // GET using the parameters in the URI as a necessity to obtain result.
+app.get('/:cpuBrand/price/coreCount/:serialNumber', (request, response) => { // GET using the parameters in the URI as a necessity to obtain result.
     const cpuBrand = request.params.cpuBrand; // 
-    const price = request.params.price;
-    const coreCount = request.params.coreCount;
-    const sqlQuery = "SELECT * FROM cpus WHERE price = '" + price 
-    + "' AND cpuBrand = '" + cpuBrand + "' AND coreCount = '" + coreCount + "' ;";
+    const serialNumber = request.params.serialNumber;
+
+    const sqlQuery = "SELECT * FROM cpus WHERE cpuBrand = '" + cpuBrand + "' AND serialNumber = '" + serialNumber + "' ;";
     dbConnection.query(sqlQuery, (err, result) => {
         if (err) {
             return response.status(400).json({Error: "Error in the SQL statement. Please check."});
         }
-        response.setHeader('coreCount', coreCount); // Send a custom.
+        response.setHeader('cpuBrand', cpuBrand); // Send a custom.
         return response.status(200).json(result);
     });
 });
