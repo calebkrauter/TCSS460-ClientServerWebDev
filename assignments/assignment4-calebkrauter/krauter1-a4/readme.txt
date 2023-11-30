@@ -2,6 +2,7 @@ Dependencies and start proceedure;
 o npm init –y 
 o npm i express nodemon mysql cors 
 o npm start
+o node config.js
 
 Source for data set. 
 o ChatGPT 3.5
