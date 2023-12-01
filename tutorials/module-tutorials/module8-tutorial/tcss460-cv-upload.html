@@ -1,4 +1,4 @@
-<!-- ****************************************** -->
+******************************************
 <!-- TCSS 460: Azure Computer Vison API Example -->
 <!-- Autumn 2023   |     Course Example | WK 8  -->
 <!-- based on sample code provided by Microsoft -->
@@ -47,7 +47,7 @@
             var params = {
                 // Request parameters
                 "visualFeatures": "Categories,Color,description,Faces,Objects,Tags",
-                //"details": "{string}",
+                "details": "Landmarks",
                 "language": "en",
                 "model-version": "latest",
             };
@@ -63,12 +63,14 @@
             // the event handler onload will be executed when a file is loaded  
             reader.onload = function () {
                 $.ajax({
+
+                    // url: "https://tcss460-cv99.cognitiveservices.azure.com/" + $.param(params),
                     url: "https://westus.api.cognitive.microsoft.com/vision/v3.2/analyze?" + $.param(params),
                     beforeSend: function (xhrObj) {
                         // Request headers
                         // xhrObj.setRequestHeader("Content-Type","application/json");
                         xhrObj.setRequestHeader("Content-Type", "application/octet-stream");
-                        xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", "{enter your subscription key here!}");
+                        xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", "2331bb53cf474edf8b956d2192c2b2d0");
                     },
                     type: "POST",
                     // Request body
