@@ -7,12 +7,6 @@
 <!-- CHANGE YOUR API KEY LINE 71                -->
 <!-- ****************************************** -->
 
-<!-- TODO
-    1. Create backend functionality to deal with all URI and test it. GET for getting info
-    and details about company using buttons or selector... Post for sending image data to be retrieved
-    like if you check boxes and then upload an image.
--->
-
 <!DOCTYPE html>
 <html>
 
@@ -69,8 +63,6 @@
             // the event handler onload will be executed when a file is loaded  
             reader.onload = function () {
                 $.ajax({
-
-                    // url: "https://tcss460-cv99.cognitiveservices.azure.com/" + $.param(params),
                     url: "https://westus.api.cognitive.microsoft.com/vision/v3.2/analyze?" + $.param(params),
                     beforeSend: function (xhrObj) {
                         // Request headers
@@ -86,7 +78,7 @@
 
                 })
                     // when the ready state is complete or done
-                    .done(function (data) {
+                    .done(function doSomething (data) {
                         //alert("success");
 
                         // begin parsing the JSON data
@@ -155,6 +147,7 @@
 
         });
     </script>
+            <button onclick="doSomething()">Press me</button>
 
     <!-- Image Information Table -->
     <div class="card border-primary mb-3" style="max-width: 21rem;" id="imageInfo">
@@ -176,13 +169,8 @@
     <h1 id="tags_title">Tags</h1>
     <table id="tag_info" class="table table-hover"  style="width:200px">
         <tbody>
-
         </tbody>
     </table>
-
-
-
-
 </body>
 
 </html>
