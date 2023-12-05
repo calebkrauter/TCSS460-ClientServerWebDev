@@ -41,10 +41,8 @@ app.listen(3000, () => {
  *      description: Gets json message containing company name, address, email, phone number.
  *      responses:
  *          200:
- *              description: To get details
+ *              description: To get details.
  */
-// Returns  a  general  purpose  JSON  message  containing  items  like 
-// (a)  company  name,  (b) address, (c) email, and (d) telephone number (this can be arbitrarily data). 
 app.get('/twsi', async (request, response) => { // POST request.
     try {            
             const azureResponse = axios.get(
@@ -68,9 +66,16 @@ app.get('/twsi', async (request, response) => { // POST request.
         console.log(error);
     }
 });
-
-// Returns  a  general  purpose  JSON  message  containing  a  phrase  like 
-// "TWSI  Computer Vision 1.0"
+/**
+ * @swagger
+ * /:
+ *  get:
+ *      summary: Returns  a  general  purpose  JSON  message  containing  a  phrase  like "TWSI  Computer Vision 1.0".
+ *      description: Returns  a  general  purpose  JSON  message  containing  a  phrase  like "TWSI  Computer Vision 1.0".
+ *      responses:
+ *          200:
+ *              description: Gets version info.
+ */
 app.get('/twsi/cv', async (request, response) => { // POST request.
     try {
             const azureResponse = axios.get(
@@ -96,8 +101,16 @@ app.get('/twsi/cv', async (request, response) => { // POST request.
     }
 });
 
-// Returns a general purpose JSON message containing a phrase like "TWSI Image 
-// Detection" 
+/**
+ * @swagger
+ * /:
+ *  get:
+ *      summary: Returns a general purpose JSON message containing a phrase like "TWSI Image Detection".
+ *      description: Returns a general purpose JSON message containing a phrase like "TWSI Image Detection".
+ *      responses:
+ *          200:
+ *              description: Gets whether the image has been detected or not.
+ */
 app.get('/twsi/cv/detect/', async (request, response) => { // POST request.
     try {         
             const azureResponse = axios.get(
@@ -123,8 +136,16 @@ app.get('/twsi/cv/detect/', async (request, response) => { // POST request.
     }
 });
 
-// Processes  an  image  at  a  given  URL  string.  The  URL  string  must  be  passed  through  a 
-// HTTP header attribute called 'url'. 
+/**
+ * @swagger
+ * /:
+ *  post:
+ *      summary: Processes an image at a given URL string. The URL string must be passed through a HTTP header attribute called 'url'. 
+ *      description: Processes an image at a given URL string. The URL string must be passed through a HTTP header attribute called 'url'. 
+ *      responses:
+ *          200:
+ *              description: Returns data from a processed image sent through the header.
+ */
 app.post('/twsi/cv/detect/url', async (request, response) => { // POST request.
     try {           
             const azureResponse = axios.post(
@@ -150,8 +171,20 @@ app.post('/twsi/cv/detect/url', async (request, response) => { // POST request.
     }
 });
 
-// Processes  an  image  at  a  given  URL  string.  The  URL  string  must  be  passed  through  a 
-// HTTP header attribute called 'url'. 
+/**
+ * @swagger
+ * /:
+ *  post:
+ *      summary: Processes an image at a given URL string. The URL string must be passed through a HTTP header attribute called 'url'.
+ *               {features} specifies one or more visual features that are intended to be utilized within the 
+ *               HTTP  request. 
+ *      description: Processes an image at a given URL string. The URL string must be passed through a HTTP header attribute called 'url'.
+ *               {features} specifies one or more visual features that are intended to be utilized within the 
+ *               HTTP  request. 
+ *      responses:
+ *          200:
+ *              description: Returns the data of a processed image sent through the header based on specific feature(s).
+ */
 app.post('/twsi/cv/detect/url/{features}', async (request, response) => { // POST request.
     try {            
             const azureResponse = axios.post(
@@ -177,8 +210,18 @@ app.post('/twsi/cv/detect/url/{features}', async (request, response) => { // POS
     }
 });
 
-// Processes  an  image  at  a  given  URL  string.  The  URL  string  must  be  passed  through  a 
-// HTTP header attribute called 'url'.
+/**
+ * @swagger
+ * /:
+ *  post:
+ *      summary: Processes an image at a given URL string. The URL string must be passed through a HTTP header attribute called 'url'.
+ *               {feature} specifies a single visual features to be employed within the HTTP request. 
+ *      description: Processes an image at a given URL string. The URL string must be passed through a HTTP header attribute called 'url'.
+ *               {feature} specifies a single visual features to be employed within the HTTP request. 
+ *      responses:
+ *          200:
+ *              description: Returns the data of a processed image sent through the header based on a specific feature.
+ */
 app.post('/twsi/cv/detect/url/features/{feature}', async (request, response) => { // POST request.
     try {
             const azureResponse = axios.post(
@@ -204,8 +247,18 @@ app.post('/twsi/cv/detect/url/features/{feature}', async (request, response) => 
     }
 });
 
-// Processes  an  image  at  a  given  URL  string.  The  URL  string  must  be  passed  through  a 
-// HTTP header attribute called 'url'.
+/**
+ * @swagger
+ * /:
+ *  post:
+ *      summary: Processes an image at a given URL string. The URL string must be passed through a HTTP header attribute called 'url'.
+ *               Details specifies a Landmark. 
+ *      description: Processes an image at a given URL string. The URL string must be passed through a HTTP header attribute called 'url'. 
+ *               Details specifies a Landmark.
+ *      responses:
+ *          200:
+ *              description: Return data from a processed image sent through the header with any of the details.
+ */
 app.post('/twsi/cv/detect/url/details', async (request, response) => { // POST request.
     try {
             const azureResponse = axios.post(
@@ -232,13 +285,22 @@ app.post('/twsi/cv/detect/url/details', async (request, response) => { // POST r
     }
 });
 
-// Processes  an  image  at  a  given  URL  string.  The  URL  string  must  be  passed  through  a 
-// HTTP header attribute called 'url'.
+/**
+ * @swagger
+ * /:
+ *  post:
+ *      summary: Processes an image at a given URL string. The URL string must be passed through a HTTP header attribute called 'url'.
+ *               {detail} specifies a single domain-specific detail to be employed within the HTTP request.
+ *      description: Processes an image at a given URL string. The URL string must be passed through a HTTP header attribute called 'url'. 
+ *               {detail} specifies a single domain-specific detail to be employed within the HTTP request.
+ *      responses:
+ *          200:
+ *              description: Return data from a processed image sent through the header with a specified detail.
+ */
 app.post('/twsi/cv/detect/url/details/{detail}', async (request, response) => { // POST request.
     try {
             const azureResponse = axios.post(
                 `https://westus.api.cognitive.microsoft.com/vision/v3.2/analyze?` + request.params,
-                // IMAGE from frontend body bodyParser.raw,
                 request.body,
                 {
                     params: {
@@ -265,12 +327,21 @@ app.post('/twsi/cv/detect/url/details/{detail}', async (request, response) => { 
 // and model-version in the HTTP header instead. There are no restrictions on what values 
 // to use for features (one, some or all), and language.  
 // In Thunder Client, you can test for binary file upload in the HTTP body using the Binary 
-// option as shown below.  
+// option as shown below. 
+/**
+ * @swagger
+ * /:
+ *  post:
+ *      summary: Processes an image as binary file in the HTTP body using application/octet-stream.
+ *      description: Processes an image as binary file in the HTTP body using application/octet-stream.
+ *      responses:
+ *          200:
+ *              description: Return data from a processed image sent through the header.
+ */ 
 app.post('/twsi/cv/detect/stream', async (request, response) => { // POST request.
     try {
             const azureResponse = axios.post(
                 `https://westus.api.cognitive.microsoft.com/vision/v3.2/analyze?` + request.params,
-                // IMAGE from frontend body bodyParser.raw,
                 request.body,
                 {
                     params: {
