@@ -32,6 +32,19 @@
             $ ("#imageInfo").hide();
         }
 
+        let uri = "/twsi/cv/detect/url";
+        async function makeURI() {
+            // '/twsi' seperate button that goes directly to the get request
+            // '/twsi/cv' seperate button that goes directly to the get request
+            // '/twsi/cv/detect/' seperate button that goes directly to the get request
+            // '/twsi/cv/detect/url' Process an image and display all data. NO Checkboxes pressed
+            // '/twsi/cv/detect/url/{features}' some or all checkboxes checked, for each one checked send a visualfeature parameter and add it to the headers
+            // '/twsi/cv/detect/url/features/{feature}' A single visual feature box was checked and added to the headers
+            // '/twsi/cv/detect/url/details' domain specific details,  press the details button
+            // '/twsi/cv/detect/url/details/{detail}' specify a detail like landmarks, anything including language may be selected
+            // '/twsi/cv/detect/stream'
+        }
+
         // Callback from a <input type="file" onchange="analyzeImage(this)"> - see below HTML code
         // Callback function is called when a file is selected
         // the function is attached to the onchange event, which triggers this function. 
@@ -147,7 +160,40 @@
 
         });
     </script>
+        <label>Categories</label>
+        <div class="selectors card border">
+            <input type="checkbox" id="categories-box">
+        </div>
+        <label>Color</label>
+        <div class="selectors card border">
+            <input type="checkbox" id="color-box">
+        </div>
+        <label>description</label>
+        <div class="selectors card border">
+            <input type="checkbox" id="description-box">
+        </div>
+        <label>Faces</label>
+        <div class="selectors card border">
+            <input type="checkbox" id="faces-box">
+        </div>
+        <label>Objects</label>
+        <div class="selectors card border">
+            <input type="checkbox" id="objects-box">
+        </div>
+        <label>Tags</label>
+        <div class="selectors card border">
+            <input type="checkbox" id="tags-box">
+        </div>
+        <label>Landmarks</label>
+        <div class="selectors card border">
+            <input type="checkbox" id="landmarks-box">
+        </div>
+        <label>Language en</label>
+        <div class="selectors card border">
+            <input type="checkbox" id="language-box">
+        </div>
 
+    </div>
     <!-- Image Information Table -->
     <div class="card border-primary mb-3" style="max-width: 21rem;" id="imageInfo">
         <div class="card-header">Selected Image</div>
