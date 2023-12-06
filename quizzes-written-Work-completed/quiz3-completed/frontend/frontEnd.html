@@ -64,7 +64,7 @@
         async function makeURI() {
 
             // The idea of this method is that it would get called after check boxes are selected and submitted.
-            // After checkboxes get selected and submitted it use logic to determine the URI that is necessary based on
+            // After checkboxes get selected and submitted it uses logic to determine the URI that is necessary which needs to match on
             // what the user desires. The URI would be constructed and the parameters that the user selects will be sent to
             // the backend where the data can be sent to the API and processed depending on the method used.
             // '/twsi' seperate button that goes directly to the get request
@@ -193,108 +193,106 @@
 
         });
     </script>
-    <Table>
-        <tr>
-            <td class="even">
-                <label class="labels">Categories</label>
-                <div class="selectors border">
-                    <input type="checkbox" id="categories-box">
-                </div>
-            </td>
-            
-        </tr>
-        <tr>
-            <td class="odd">
-                <label class="labels">Color</label>
-                <div class="selectors border">
-                    <input type="checkbox" id="color-box">
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td class="even">
-                <label class="labels">description</label>
-                <div class="selectors border">
-                    <input type="checkbox" id="description-box">
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td class="odd">
-                <label class="labels">Faces</label>
-                <div class="selectors border">
-                    <input type="checkbox" id="faces-box">
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td class="even">
-                <label class="labels">Objects</label>
-                <div class="selectors border">
-                    <input type="checkbox" id="objects-box">
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td class="odd">
-                <label class="labels">Tags</label>
-                <div class="selectors border">
-                    <input type="checkbox" id="tags-box">
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td class="even">
-                <label class="labels">Landmarks</label>
-                <div class="selectors border">
-                    <input type="checkbox" id="landmarks-box">
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td class="odd">
-
-                <label class="labels">Language en</label>
-                <div class="selectors border">
-                    <input type="checkbox" id="language-box">
-                </div>
-            </td>
-        </tr>
-        <input class="submit" id="submit" onclick="{makeURI}" type="submit">
-    </Table>
-        
-        
-       
-        
-        
-        
+    <form>
+        <Table>
+            <tr>
+                <td class="even">
+                    <label class="labels">Categories</label>
+                    <div class="selectors border">
+                        <input type="checkbox" id="categories-box">
+                    </div>
+                </td>
+                
+            </tr>
+            <tr>
+                <td class="odd">
+                    <label class="labels">Color</label>
+                    <div class="selectors border">
+                        <input type="checkbox" id="color-box">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="even">
+                    <label class="labels">description</label>
+                    <div class="selectors border">
+                        <input type="checkbox" id="description-box">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="odd">
+                    <label class="labels">Faces</label>
+                    <div class="selectors border">
+                        <input type="checkbox" id="faces-box">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="even">
+                    <label class="labels">Objects</label>
+                    <div class="selectors border">
+                        <input type="checkbox" id="objects-box">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="odd">
+                    <label class="labels">Tags</label>
+                    <div class="selectors border">
+                        <input type="checkbox" id="tags-box">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="even">
+                    <label class="labels">Landmarks</label>
+                    <div class="selectors border">
+                        <input type="checkbox" id="landmarks-box">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="odd">
     
+                    <label class="labels">Language en</label>
+                    <div class="selectors border">
+                        <input type="checkbox" id="language-box">
+                    </div>
+                </td>
+            </tr>
+            <input class="submit" id="submit" onclick="{makeURI}" type="submit">
+            <button>Get Details</button>
+            <button>Get Version</button>
+            <button>Detect</button>
 
-
-    </div>
-    <!-- Image Information Table -->
-    <div class=" border-primary mb-3" style="max-width: 21rem;" id="imageInfo">
-        <div class="-header">Selected Image</div>
-        <div class="-body">
-          <img id="imgsrc" >
+        </Table>
+ 
         </div>
-    </div>
-
-    <!-- Results Information Table -->
-    <h1 id="outputResults">Results</h1>
-    <table id="resultsInfo" class="table table-hover" style="width:400px">
-        <tbody>
-
-        </tbody>
-    </table>
-
-    <!-- Tags Table -->
-    <h1 id="tags_title">Tags</h1>
-    <table id="tag_info" class="table table-hover"  style="width:200px">
-        <tbody>
-
-        </tbody>
-    </table>
+        <!-- Image Information Table -->
+        <div class=" border-primary mb-3" style="max-width: 21rem;" id="imageInfo">
+            <div class="-header">Selected Image</div>
+            <div class="-body">
+              <img id="imgsrc" >
+            </div>
+        </div>
+    
+        <!-- Results Information Table -->
+        <h1 id="outputResults">Results</h1>
+        <table id="resultsInfo" class="table table-hover" style="width:400px">
+            <tbody>
+    
+            </tbody>
+        </table>
+    
+        <!-- Tags Table -->
+        <h1 id="tags_title">Tags</h1>
+        <table id="tag_info" class="table table-hover"  style="width:200px">
+            <tbody>
+    
+            </tbody>
+        </table>
+    </form>
 </body>
 
 </html>

@@ -111,8 +111,9 @@ app.get('/twsi/cv', async (request, response) => { // POST request.
  *          200:
  *              description: Gets whether the image has been detected or not.
  */
-app.get('/twsi/cv/detect/', async (request, response) => { // POST request.
+app.get('/twsi/cv/detect', async (request, response) => { // POST request.
     try {         
+        // Couldn't use FileReader here to get the arraybuffer of the request.body due to errors.
             const azureResponse = axios.get(
                 `https://westus.api.cognitive.microsoft.com/vision/v3.2/analyze?` + request.params,
                 request.body,
